@@ -1,5 +1,5 @@
 return {
-  "sonph/onehalf",
+  "BBaoVanC/onehalf",
   config = function (plugin)
     vim.opt.rtp:append(plugin.dir .. "/vim")
   end

@@ -26,10 +26,12 @@ vim.keymap.set("n", "p", "\"+p")
 vim.keymap.set("v", "p", "\"+p")
 
 -- navigate window panes
-vim.keymap.set("n", "<A-h>", "<C-w>h")
-vim.keymap.set("n", "<A-j>", "<C-w>j")
-vim.keymap.set("n", "<A-k>", "<C-w>k")
-vim.keymap.set("n", "<A-l>", "<C-w>l")
+vim.keymap.set("n", "<leader>wh", "<C-w>h")
+vim.keymap.set("n", "<leader>wj", "<C-w>j")
+vim.keymap.set("n", "<leader>wk", "<C-w>k")
+vim.keymap.set("n", "<leader>wl", "<C-w>l")
+vim.keymap.set("n", "<leader>ws", "<C-w>s")
+vim.keymap.set("n", "<leader>wv", "<C-w>v")
 
 vim.keymap.set("n", "Q", "<nop>")
 
@@ -59,14 +61,14 @@ vim.opt.backup = false
 -- :help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
@@ -78,13 +80,26 @@ vim.cmd("colorscheme onehalfdark")
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp.default_keymaps({ buffer = bufnr })
+    -- see :help lsp-zero-keybindings
+    -- to learn the available actions
+    lsp.default_keymaps({ buffer = bufnr })
+
+    vim.keymap.set("n", "<A-S-f>", ":lua=vim.lsp.buf.format()<CR>")
+    vim.keymap.set("n", "<leader>a", ":lua=vim.lsp.buf.code_action()<CR>")
+    vim.keymap.set("n", "gd", ":lua=vim.lsp.buf.definition()<CR>")
+    vim.keymap.set("n", "gD", ":lua=vim.lsp.buf.declaration()<CR>")
+    vim.keymap.set("n", "gr", ":lua=vim.lsp.buf.references()<CR>")
+    vim.keymap.set("n", "gi", ":lua=vim.lsp.buf.implementation()<CR>")
+    vim.keymap.set("n", "gt", ":lua=vim.lsp.buf.type_definition()<CR>")
+
+    vim.keymap.set("n", "td", ":Telescope lsp_definitions<CR>")
+    vim.keymap.set("n", "tD", ":Telescope lsp_declarations<CR>")
+    vim.keymap.set("n", "tr", ":Telescope lsp_references<CR>")
+    vim.keymap.set("n", "ti", ":Telescope lsp_implementations<CR>")
+    vim.keymap.set("n", "tt", ":Telescope lsp_type_definitions<CR>")
 end)
 
 -- (Optional) Configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
-
