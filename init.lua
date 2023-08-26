@@ -42,9 +42,9 @@ vim.opt.cursorline = true
 
 vim.opt.updatetime = 50
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
@@ -72,7 +72,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- colors
-local myColorschemes = { "tokyonight-storm", "rose-pine-moon", "catppuccin-frappe", "gruvbox" }
 vim.cmd("colorscheme onehalfdark")
 
 -- lsp setup using lsp-zero
@@ -89,5 +88,3 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 lsp.setup()
 
--- local smallpoon = require("smallpoon")
--- vim.keymap.set("n", "<Leader>M", ":lua smallpoon.say_hello<CR>");

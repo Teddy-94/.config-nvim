@@ -8,7 +8,7 @@ return {
         ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc'},
     highlight = {
                 -- false will disable the whole extension
-                enable = true,
+                enable = false,
             },
     } end
    }
