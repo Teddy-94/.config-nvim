@@ -91,13 +91,6 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "gD", ":lua=vim.lsp.buf.declaration()<CR>")
     vim.keymap.set("n", "gr", ":lua=vim.lsp.buf.references()<CR>")
     vim.keymap.set("n", "gi", ":lua=vim.lsp.buf.implementation()<CR>")
-    vim.keymap.set("n", "gt", ":lua=vim.lsp.buf.type_definition()<CR>")
-
-    vim.keymap.set("n", "td", ":Telescope lsp_definitions<CR>")
-    vim.keymap.set("n", "tD", ":Telescope lsp_declarations<CR>")
-    vim.keymap.set("n", "tr", ":Telescope lsp_references<CR>")
-    vim.keymap.set("n", "ti", ":Telescope lsp_implementations<CR>")
-    vim.keymap.set("n", "tt", ":Telescope lsp_type_definitions<CR>")
 end)
 
 -- (Optional) Configure lua language server for neovim

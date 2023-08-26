@@ -54,7 +54,22 @@ return {
         {
             "<Leader>gr",
             "<cmd>Telescope lsp_references<CR>",
-            desc = "Go to implementation",
+            desc = "Go to references",
+        },
+        {
+            "<Leader>gd",
+            "<cmd>Telescope lsp_definitions<CR>",
+            desc = "Go to definition",
+        },
+        {
+            "<Leader>gD",
+            "<cmd>Telescope lsp_declarations<CR>",
+            desc = "Go to declarations",
+        },
+        {
+            "<Leader>gt",
+            "<cmd>Telescope lsp_type_definitions<CR>",
+            desc = "Go to type definition",
         },
     }
 }
