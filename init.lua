@@ -73,9 +73,7 @@ require("lazy").setup("plugins")
 
 -- colors
 local myColorschemes = { "tokyonight-storm", "rose-pine-moon", "catppuccin-frappe", "gruvbox" }
-local selectedColorscheme = myColorschemes[math.random(#myColorschemes)]
-vim.cmd("colorscheme " .. selectedColorscheme)
-vim.api.nvim_echo({ { selectedColorscheme, "Normal" } }, true, {})
+vim.cmd("colorscheme onehalfdark")
 
 -- lsp setup using lsp-zero
 local lsp = require('lsp-zero').preset({})
