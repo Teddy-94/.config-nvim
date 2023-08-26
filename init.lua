@@ -1,6 +1,7 @@
 -- keymaps
 vim.g.mapleader = " "
 vim.g.maplocalleader = ' '
+vim.opt.clipboard = "unnamedplus"
 
 -- Misc. commands
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
