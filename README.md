@@ -9,7 +9,6 @@ The main Vim setup is done in init.lua, which also sets up lazy.nvim to manage p
 # Dependencies
 These are the core plugins for base functionality
 * [lazy.nvim](https://github.com/folke/lazy.nvim) for managing plugins
-* [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for syntax highlighting
 * [lsp-zero](https://github.com/VonHeikemen/lsp-zero.nvim) for lsp features
 * [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git statuses  
 * [trouble.nvim](https://github.com/folke/trouble.nvim) for error messages
@@ -21,6 +20,7 @@ These are more optional plugins
 * [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) for a more beautiful file explorer 
 
 These are the color schemes I regularly rotate between. (disabled italics for applicable colorschemes)
+* [onehalf](https://github.com/BBaoVanC/onehalf) onehalf-dark
 * [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) tokyonight-storm
 * [catppuccin](https://github.com/catppuccin/nvim) catppuccin-frappe
 * [rose-pine](https://github.com/rose-pine/neovim)
