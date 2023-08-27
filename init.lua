@@ -40,7 +40,7 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.opt.scrolloff = 8
 vim.opt.nu = true
 vim.opt.signcolumn = "yes"
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.cursorline = true
 
 vim.opt.updatetime = 50
