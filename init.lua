@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = ' '
 vim.opt.clipboard = "unnamedplus"
 
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 -- Misc. commands
 -- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<C-s>", ":w<CR>")
@@ -75,7 +76,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- colors
-vim.cmd("colorscheme onehalfdark")
+vim.cmd("colorscheme nord")
 
 -- lsp setup using lsp-zero
 local lsp = require('lsp-zero').preset({})
