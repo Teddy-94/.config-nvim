@@ -7,6 +7,6 @@ return {
         -- refer to the configuration section below
     },
     keys = {
-        { "<Leader>t", "<cmd>Trouble<CR>", desc = "togle Trouble window" },
+        { "<Leader>t", "<cmd>Trouble<CR>", desc = "toggle Trouble window" },
     },
 }

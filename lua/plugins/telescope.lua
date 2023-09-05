@@ -8,7 +8,7 @@ return {
             build = "make",
         },
         "nvim-telescope/telescope-ui-select.nvim", -- Use telescope to override vim.ui.select
-        -- "nvim-telescope/telescope-dap.nvim", -- USe telescope for debugging
+        -- "nvim-telescope/telescope-dap.nvim", -- Use telescope for debugging
     },
     config = function()
         local telescope = require("telescope")
