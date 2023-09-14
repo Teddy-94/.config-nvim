@@ -1,6 +1,8 @@
 -- keymaps
 vim.g.mapleader = " "
 vim.g.maplocalleader = ' '
+
+-- use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
@@ -19,13 +21,8 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 --paste no overwrite what you have in register
-vim.keymap.set("x", "p", "\"_dP")
-
--- Yank/paste to and from system clipboard
-vim.keymap.set("n", "y", "\"+y")
-vim.keymap.set("v", "y", "\"+y")
-vim.keymap.set("n", "p", "\"+p")
-vim.keymap.set("v", "p", "\"+p")
+vim.keymap.set("x", "p", "P")
+vim.keymap.set("v", "p", "P")
 
 -- navigate window panes
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
@@ -34,6 +31,11 @@ vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>ws", "<C-w>s")
 vim.keymap.set("n", "<leader>wv", "<C-w>v")
+
+-- TODO: fix C-Space to bring up the completion menu
+-- and make Tab and S-Tab be C-n and C-p if the completion menu is open.
+vim.keymap.set("n", "<C-Space>", "<nop>")
+vim.keymap.set("i", "<C-Space>", "<nop>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
