@@ -32,8 +32,11 @@ vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>ws", "<C-w>s")
 vim.keymap.set("n", "<leader>wv", "<C-w>v")
 
+-- H and L to move to start and end of line
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "L", "$")
+
 -- TODO: fix C-Space to bring up the completion menu
--- and make Tab and S-Tab be C-n and C-p if the completion menu is open.
 vim.keymap.set("n", "<C-Space>", "<nop>")
 vim.keymap.set("i", "<C-Space>", "<nop>")
 
