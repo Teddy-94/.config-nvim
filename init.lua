@@ -81,7 +81,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- colors
-vim.cmd("colorscheme nord")
+vim.cmd("colorscheme onehalfdark")
 
 -- lsp setup using lsp-zero
 local lsp = require('lsp-zero').preset({})
