@@ -5,11 +5,16 @@ vim.g.maplocalleader = ' '
 -- use system clipboard
 vim.opt.clipboard = "unnamedplus"
 
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 -- Misc. commands
--- vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+-- C-s to save
 vim.keymap.set("n", "<C-s>", ":w<CR>")
+-- C-l to clear any highlights
 vim.keymap.set("n", "<C-l>", ":noh<CR>")
+
+-- C-t to open terminal in the dir of the currently open file
+vim.keymap.set("n", "<C-t>", ":split term://%:p:h//bash<CR>")
+-- map esc to get into normal mode when in a term buffer
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
 -- move lines in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -21,24 +26,22 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 --paste no overwrite what you have in register
-vim.keymap.set("x", "p", "P")
-vim.keymap.set("v", "p", "P")
+vim.keymap.set({ "x", "v" }, "p", "P")
 
 -- navigate window panes
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
 vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
-vim.keymap.set("n", "<leader>ws", "<C-w>s")
-vim.keymap.set("n", "<leader>wv", "<C-w>v")
+vim.keymap.set("n", "<leader>ws", ":split<CR>")
+vim.keymap.set("n", "<leader>wv", ":vsplit<CR>")
 
 -- H and L to move to start and end of line
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
 
 -- TODO: fix C-Space to bring up the completion menu
-vim.keymap.set("n", "<C-Space>", "<nop>")
-vim.keymap.set("i", "<C-Space>", "<nop>")
+vim.keymap.set({ "n", "i" }, "<C-Space>", "<nop>")
 
 vim.keymap.set("n", "Q", "<nop>")
 
