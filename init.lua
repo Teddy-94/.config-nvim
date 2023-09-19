@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("n", "<C-l>", ":noh<CR>")
 
 -- C-t to open terminal in the dir of the currently open file
-vim.keymap.set("n", "<C-t>", ":split term://%:p:h//bash<CR>")
+vim.keymap.set("n", "<C-t>", ":term://%:p:h//bash<CR>")
 -- map esc to get into normal mode when in a term buffer
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
