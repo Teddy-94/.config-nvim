@@ -36,6 +36,11 @@ vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>ws", ":split<CR>")
 vim.keymap.set("n", "<leader>wv", ":vsplit<CR>")
 
+-- make window resizing easier
+vim.keymap.set("n", "<C-w>l", "5<C-w>>")
+vim.keymap.set("n", "<C-w>h", "5<C-w><")
+vim.keymap.set("n", "<C-w>k", "5<C-w>+")
+vim.keymap.set("n", "<C-w>j", "5<C-w>-")
 -- H and L to move to start and end of line
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
