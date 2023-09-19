@@ -11,8 +11,8 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 -- C-l to clear any highlights
 vim.keymap.set("n", "<C-l>", ":noh<CR>")
 
--- C-t to open terminal in the dir of the currently open file
-vim.keymap.set("n", "<C-t>", ":term://%:p:h//bash<CR>")
+-- Open a terminal buffer in the current dir and puts you in edit
+vim.keymap.set("n", "<C-t>", ":new<CR>:term<CR>a")
 -- map esc to get into normal mode when in a term buffer
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
