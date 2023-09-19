@@ -12,7 +12,7 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("n", "<C-l>", ":noh<CR>")
 
 -- Open a terminal buffer in the current dir and puts you in edit
-vim.keymap.set("n", "<C-t>", ":new<CR>:term<CR>a")
+vim.keymap.set("n", "<C-t>", ":bel new<CR>:term<CR>a")
 -- map esc to get into normal mode when in a term buffer
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
