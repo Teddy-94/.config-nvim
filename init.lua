@@ -62,6 +62,17 @@ vim.opt.updatetime = 50
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+
+-- automatically set indents to 2 if the file is a react file
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "javascriptreact", "javascript.jsx", "typescriptreact", "typescript.tsx" },
+    callback = function()
+        vim.api.nvim_command("set tabstop=2")
+        vim.api.nvim_command("set shiftwidth=2")
+        vim.api.nvim_out_write("detected filetype, set indent to 2\n")
+    end
+})
+
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
