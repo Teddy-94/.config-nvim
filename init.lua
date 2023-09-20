@@ -48,6 +48,8 @@ vim.keymap.set("n", "L", "$")
 -- TODO: fix C-Space to bring up the completion menu
 vim.keymap.set({ "n", "i" }, "<C-Space>", "<nop>")
 
+-- TODO: find a new key for recording macros
+vim.keymap.set("n", "q", "<nop>")
 vim.keymap.set("n", "Q", "<nop>")
 
 -- vim options
