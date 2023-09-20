@@ -45,7 +45,7 @@ vim.keymap.set("n", "<C-w>j", "5<C-w>-")
 vim.keymap.set("n", "H", "^")
 vim.keymap.set("n", "L", "$")
 
--- TODO: fix C-Space to bring up the completion menu
+-- C-space gets mapped in cmp to bring up completion menu
 vim.keymap.set({ "n", "i" }, "<C-Space>", "<nop>")
 
 -- TODO: find a new key for recording macros
@@ -101,5 +101,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", { defaults = { lazy = false } })
 
--- colors
-vim.cmd("colorscheme onehalfdark")
+
