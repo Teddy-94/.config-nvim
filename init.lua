@@ -99,8 +99,7 @@ if not vim.loop.fs_stat(lazypath) then
     })
 end
 vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
+require("lazy").setup("plugins", { defaults = { lazy = false } })
 
 -- colors
 vim.cmd("colorscheme onehalfdark")
-
