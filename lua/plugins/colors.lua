@@ -6,6 +6,12 @@ return {
         end
     },
     {
+        "gruvbox-community/gruvbox",
+        config = function(plugin)
+            vim.opt.rtp:append(plugin.dir .. "/vim")
+        end
+    },
+    {
         "rose-pine/neovim",
         config = function()
             require("rose-pine").setup({
@@ -20,6 +26,7 @@ return {
     },
     {
         "ellisonleao/gruvbox.nvim",
+        enabled = false,
         config = function()
             require("gruvbox").setup({
                 italic = {
