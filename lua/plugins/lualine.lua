@@ -1,12 +1,14 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  dependencies = {
-    "kyazdani42/nvim-web-devicons", opt = true
-  },
-  opts = {
-    options = {
- --     theme = "tokyonight",
-      globalstatus = true,
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+        "nvim-tree/nvim-web-devicons", opt = true
+    },
+    opts = {
+        options = {
+            -- theme = "onedark",
+            theme = "gruvbox_dark",
+            -- theme = "catppuccin",
+            globalstatus = true,
+        }
     }
-  }
 }

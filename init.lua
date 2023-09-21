@@ -56,7 +56,13 @@ vim.keymap.set("n", "Q", "<nop>")
 vim.opt.scrolloff = 8
 vim.opt.nu = true
 vim.opt.signcolumn = "yes"
+
 vim.opt.wrap = true
+
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 vim.opt.cursorline = true
 
 vim.opt.updatetime = 50
@@ -64,6 +70,9 @@ vim.opt.updatetime = 50
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noinsert'
 
 -- automatically set indents to 2 if the file is a react file
 vim.api.nvim_create_autocmd("FileType", {
@@ -102,3 +111,60 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", { defaults = { lazy = false } })
 
 
+-- [[ Set Colorscheme ]]
+-- vim.cmd([[colorscheme onehalfdark]])
+-- vim.cmd([[colorscheme rose-pine]])
+vim.cmd([[colorscheme gruvbox]])
+--vim.cmd([[colorscheme catppuccin]])
+
+
+-- [[ Configure LSP ]]
+local on_attach = function(_, bufnr)
+    -- do stuff on LSP attatch
+end
+vim.keymap.set('n', '<leader>t', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+vim.keymap.set("n", "K", ":lua=vim.lsp.buf.hover()<CR>")
+vim.keymap.set("n", "<C-k>", ":lua=vim.lsp.buf.signature_help()<CR>")
+
+vim.keymap.set("n", "<A-S-f>", ":lua=vim.lsp.buf.format()<CR>")
+vim.keymap.set("n", "<leader>a", ":lua=vim.lsp.buf.code_action()<CR>")
+vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR><Esc>")
+vim.keymap.set("n", "gD", ":Telescope lsp_declaration<CR><Esc>")
+vim.keymap.set("n", "gr", ":Telescope lsp_references<CR><Esc>")
+vim.keymap.set("n", "gi", ":Telescope lsp_implementation<CR><Esc>")
+
+local servers = {
+    lua_ls = {
+        Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+            diagnostics = { globals = { 'vim' } }
+        },
+    },
+    pyright = {},
+    tsserver = {},
+    html = { filetypes = { 'html' } },
+    cssls = {},
+    tailwindcss = {},
+}
+
+require('mini.completion').setup({})
+vim.keymap.set('i', '<Tab>', [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+
+local mason_lspconfig = require 'mason-lspconfig'
+mason_lspconfig.setup {
+    ensure_installed = vim.tbl_keys(servers),
+}
+
+mason_lspconfig.setup_handlers {
+    function(server_name)
+        require('lspconfig')[server_name].setup {
+            capabilities = vim.lsp.protocol.make_client_capabilities(),
+            on_attach = on_attach,
+            settings = servers[server_name],
+            filetypes = (servers[server_name] or {}).filetypes,
+        }
+    end
+}

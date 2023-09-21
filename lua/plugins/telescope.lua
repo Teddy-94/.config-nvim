@@ -3,10 +3,10 @@ return {
     dependencies = {
         { 'nvim-lua/plenary.nvim' },
         -- fzf filtering for telescope
-        {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            build = "make",
-        },
+        --        {
+        --            "nvim-telescope/telescope-fzf-native.nvim",
+        --            build = "make",
+        --        },
         "nvim-telescope/telescope-ui-select.nvim", -- Use telescope to override vim.ui.select
         -- "nvim-telescope/telescope-dap.nvim", -- Use telescope for debugging
         "nvim-telescope/telescope-file-browser.nvim",
@@ -17,20 +17,20 @@ return {
         telescope.setup({
             pickers = {
                 find_files = {
-                   theme = "ivy",
+                    theme = "ivy",
                 },
                 git_files = {
-                   theme = "ivy",
+                    theme = "ivy",
                 },
             },
             extensions = {
-                fzf = {
-                    theme = "ivy",
-                    fuzzy = true,                   -- let me make typos in file names please
-                    override_generic_sorter = true, -- override the generic sorter
-                    override_file_sorter = true,    -- override the file sorter
-                    case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
-                },
+                --              fzf = {
+                --                  theme = "ivy",
+                --                  fuzzy = true,                   -- let me make typos in file names please
+                --                  override_generic_sorter = true, -- override the generic sorter
+                --                  override_file_sorter = true,    -- override the file sorter
+                --                  case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+                --              },
                 ["ui-select"] = {
                     require("telescope.themes").get_dropdown {
                         -- even more opts
@@ -63,7 +63,7 @@ return {
             },
         }
         )
-        telescope.load_extension("fzf")
+        -- telescope.load_extension("fzf")
         --  telescope.load_extension("dap")
         telescope.load_extension("ui-select")
         telescope.load_extension("file_browser")
