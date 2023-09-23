@@ -28,13 +28,9 @@ require("lazy").setup({
     { import = "colors" },         -- Set colorscheme
     { import = "telescope-nvim" }, -- Install Telescope
     { import = "lsp-setup" },      -- LSP setup
-    {
-        "nvim-lualine/lualine.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
-        opts = { options = { globalstatus = true, } }
-    },
+    { 'echasnovski/mini.completion', version = '*',                                               opts = {} },
+    { "nvim-lualine/lualine.nvim",   dependencies = { "nvim-tree/nvim-web-devicons", opts = {} }, opts = {} },
     { "lewis6991/gitsigns.nvim",     opts = {} },
-    { 'echasnovski/mini.completion', version = '*', opts = {} },
-    { 'echasnovski/mini.surround',   version = '*', opts = {} },
+    { 'echasnovski/mini.surround',   version = '*',                                               opts = {} },
     { "folke/which-key.nvim",        opts = {} },
 })

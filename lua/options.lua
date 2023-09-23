@@ -3,7 +3,7 @@
 
 -- Disable these keys
 -- C-space gets mapped in cmp to bring up completion menu
-vim.keymap.set({ "n", "i" }, "<C-Space>", "<nop>")
+vim.keymap.set({ "n", "i" }, "<C-space>", "<nop>")
 
 -- TODO: find a new key for recording macros
 vim.keymap.set("n", "q", "<nop>")
@@ -31,8 +31,8 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 vim.opt.wrap = true
 -- This lets j and k navigate over wrapped lines as if they were real lines
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 vim.opt.updatetime = 50
 
@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noinsert'
+vim.o.completeopt = "menuone,noinsert,noselect"
 
 vim.opt.incsearch = true
 
