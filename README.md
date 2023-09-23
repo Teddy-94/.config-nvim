@@ -3,10 +3,12 @@
 A minimal and blazingly fast neovim config.
 
 # Structure
-All keybindings, vim options and settings, and the lsp setup goes in init.lua. The lsp related plugins are placed in plugins/lsp.lua, all colorthemes go into plugins/colors.lua, and the rest of the plugins have their own file in the plugins folder. The reason for splitting the files into a core config and plugins folder is that when editing or changing plugins, if there is an error in one of the plugins and all config is in init.lua, nvim won't be able to set any of the config and you are left with the default nvim... And that's no fun.
+The init.lua file sources the keybindings and the basic vim options from /lua/keybindings.lua and /lua/options.lua.
+It then initializes Lazy.nvim, which in turn loads the colorscheme from /lua/colors.lua, Telescope from /lua/telescope.lua, and the lsp related plugins from /lua/lsp-setup.lua.
+Finally, lazy installs the rest of the plugins.
 
 # Dependencies
-I have made and effort to use as few dependencies/plugins as possible, these are the ones I don't want to go without.
+I have made an effort to use as few dependencies/plugins as possible, these are the ones I don't want to go without.
 ## Base config:
 Most of the funcitonality I use is built into NeoVim out of the box, however there are two main core features of an IDE that need plugins. These features are 1. a decent way to browse and manage files. 2. lsp integration. While nvim has both a file manager and core lsp interop features, the "core plugins" telescope, nvim-lspconfig, and mason really improve quality of life.
 
@@ -19,10 +21,11 @@ Most of the funcitonality I use is built into NeoVim out of the box, however the
 
 ## Nice to have
 The out of the box statusline really isn't doing it for me, so I replace that with lualine. Furthermore, getting hints for those rarely used keybindings is really helpful, hence the which-key plugin. Finally, seeing gitsigns and adding some functionality regarding surrounding tags is a good improvement.
-* [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git statuses  
+* [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git statuses
+* [lualine](https://github.com/nvim-lualine/lualine.nvim) for a nicer statusline
 * [mini.surround](https://github.com/echasnovski/mini.surround)
 * [which-key](https://github.com/folke/which-key.nvim) for learning the less common keybindings
-* [lualine](https://github.com/nvim-lualine/lualine.nvim) for a nicer statusline
+
 
 ## Color
 These are the color schemes I rotate between. In all applicable cases, italics and strikethroughs are disabled.
