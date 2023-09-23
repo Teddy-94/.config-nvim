@@ -9,22 +9,22 @@ Finally, lazy installs the rest of the plugins.
 
 # Dependencies
 I have made an effort to use as few dependencies/plugins as possible, these are the ones I don't want to go without.
+
 ## Base config:
-Most of the funcitonality I use is built into NeoVim out of the box, however there are two main core features of an IDE that need plugins. These features are 1. a decent way to browse and manage files. 2. lsp integration. While nvim has both a file manager and core lsp interop features, the "core plugins" telescope, nvim-lspconfig, and mason really improve quality of life.
 
 * [lazy.nvim](https://github.com/folke/lazy.nvim) Plugin manager.
-* [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) for fuzzy finding and as a file browser
+* [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) File browser, file finder, and much more!
 
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) for lsp features
-* [mini.completion](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-completion.md)
+* [mini.completion](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-completion.md) autocomplete
 * [mason.nvim](https://github.com/williamboman/mason.nvim) for handling lsp servers
 
 ## Nice to have
-The out of the box statusline really isn't doing it for me, so I replace that with lualine. Furthermore, getting hints for those rarely used keybindings is really helpful, hence the which-key plugin. Finally, seeing gitsigns and adding some functionality regarding surrounding tags is a good improvement.
+
 * [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git statuses
 * [lualine](https://github.com/nvim-lualine/lualine.nvim) for a nicer statusline
 * [mini.surround](https://github.com/echasnovski/mini.surround)
-* [which-key](https://github.com/folke/which-key.nvim) for learning the less common keybindings
+* [which-key](https://github.com/folke/which-key.nvim) 
 
 
 ## Color
