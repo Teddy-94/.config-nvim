@@ -3,9 +3,8 @@ return {
         "BBaoVanC/onehalf",
         config = function(plugin)
             vim.opt.rtp:append(plugin.dir .. "/vim")
-            -- vim.cmd([[colorscheme onehalfdark]])
-            -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end,
     },
     {
@@ -18,16 +17,6 @@ return {
                 disable_background = true,
                 disable_float_background = true,
             })
-            -- vim.cmd([[colorscheme rose-pine]])
-        end,
-    },
-    {
-        "gruvbox-community/gruvbox",
-        config = function(plugin)
-            vim.opt.rtp:append(plugin.dir .. "/vim")
-            -- vim.cmd([[colorscheme gruvbox]])
-            -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end,
     },
     {
@@ -42,10 +31,8 @@ return {
                     folds = false,
                 },
                 strikethrough = false,
+                transparent_mode = true,
             })
-            -- vim.cmd([[colorscheme gruvbox]])
-            -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
         end,
     },
     {
@@ -64,7 +51,6 @@ return {
                 }
             }
             )
-            vim.cmd([[colorscheme catppuccin]])
         end,
     },
 }

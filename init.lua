@@ -34,3 +34,5 @@ require("lazy").setup({
     { 'echasnovski/mini.surround',   version = '*',                                               opts = {} },
     { "folke/which-key.nvim",        opts = {} },
 })
+
+vim.cmd("colorscheme gruvbox")
