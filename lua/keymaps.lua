@@ -33,7 +33,7 @@ set("n", "<leader>wl", "<C-w>l")
 set("n", "<leader>ws", ":split<CR><C-w>j")
 set("n", "<leader>wv", ":vsplit<CR><C-w>l")
 set("n", "<leader>wH", "<C-w>H", { desc = "Move split left" })
-set("n", "<leader>wJ", "<C-w>H", { desc = "Move split down" })
+set("n", "<leader>wJ", "<C-w>J", { desc = "Move split down" })
 
 -- Window resizing
 set("n", "<C-w>l", "5<C-w>>")
