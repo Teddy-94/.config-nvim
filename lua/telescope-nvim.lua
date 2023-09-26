@@ -10,6 +10,11 @@ return {
         local telescope = require("telescope")
         local fb_actions = require "telescope".extensions.file_browser.actions
         telescope.setup({
+            defaults = {
+                wrap_results = true,
+                sorting_strategy = "ascending",
+                initial_mode = "normal"
+            },
             pickers = {
                 find_files = {
                     theme = "ivy",
