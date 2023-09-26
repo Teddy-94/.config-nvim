@@ -15,9 +15,10 @@ set("t", "<Esc>", "<C-\\><C-n>")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
--- H and L to move to start and end of line
+-- H and L to move to start and end of line and m to %
 set("n", "H", "^")
 set("n", "L", "$")
+set("n", "m", "%")
 
 -- Tab and Shift-tab to cycle through selections in the popup menu
 set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
@@ -66,9 +67,9 @@ set("n", "<Leader>E", ":Telescope file_browser<CR>", { desc = "toggle file brows
 -- Telescope find / grep keymaps
 set("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 set("n", "<Leader>fg", "<cmd>Telescope git_files<CR>", { desc = "Find git_files" })
-set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Current buffer grep" })
-set("n", "<Leader>G", "<cmd>Telescope grep_string<CR>", { desc = "Ripgrep" })
+set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>i", { desc = "Current buffer grep" })
+set("n", "<Leader>G", "<cmd>Telescope grep_string<CR>i", { desc = "Ripgrep" })
 set("n", "<Leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Telescope git status" })
 
 -- Telescope search help files
-set("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Telescope Search Help" })
+set("n", "<Leader>fh", "<cmd>Telescope help_tags<CR>i", { desc = "Telescope Search Help" })
