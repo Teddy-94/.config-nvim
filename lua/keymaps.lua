@@ -43,7 +43,7 @@ set("n", "<C-w>j", "5<C-w>-")
 
 -- LSP keymaps
 set("n", "K", ":lua=vim.lsp.buf.hover()<CR>")
-set("n", "<C-k>", ":lua=vim.lsp.buf.signature_help()<CR>")
+set("n", "<F2>", ":lua=vim.lsp.buf.rename()<CR>")
 set("n", "<leader>a", ":lua=vim.lsp.buf.code_action()<CR>")
 
 -- Alt-Shift-f to format the buffer using lsp
