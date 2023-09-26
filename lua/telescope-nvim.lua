@@ -12,20 +12,16 @@ return {
         telescope.setup({
             defaults = {
                 wrap_results = true,
-                sorting_strategy = "ascending",
-                initial_mode = "normal"
+                path_display = { "absolute" },
+                initial_mode = "normal",
             },
             pickers = {
-                find_files = {
-                    theme = "ivy",
-                },
-                git_files = {
-                    theme = "ivy",
-                },
+                find_files = { theme = "ivy", },
+                git_files = { theme = "ivy", },
             },
             extensions = {
                 ["ui-select"] = {
-                    theme = "dropdown"
+                    require("telescope.themes").get_cursor {}
                 },
                 file_browser = {
                     theme = "ivy",
