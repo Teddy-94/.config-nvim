@@ -7,10 +7,14 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "pyright",
+                "pylsp",
                 "tsserver",
+                "eslint",
                 "html",
                 "cssls",
                 "tailwindcss",
+                "jdtls",
+                "jsonls",
             },
             handlers = {
                 -- The first entry (without a key) will be the default handler
