@@ -49,8 +49,11 @@ set("n", "<leader>a", ":lua=vim.lsp.buf.code_action()<CR>")
 -- Alt-Shift-f to format the buffer using lsp
 set("n", "<A-S-f>", ":lua=vim.lsp.buf.format()<CR>")
 
+-- LSP Diagnostics
+--set('n', '<leader>t', ":Telescope diagnostics<CR>", { desc = 'Open diagnostics list' })
+set('n', '<leader>t', ":TroubleToggle<CR>", { desc = 'Toggle diagnostics list' })
+
 -- Telescope LSP keymaps
-set('n', '<leader>t', ":Telescope diagnostics<CR>", { desc = 'Open diagnostics list' })
 set("n", "gd", ":Telescope lsp_definitions<CR>")
 set("n", "gr", ":Telescope lsp_references<CR>")
 set("n", "gi", ":Telescope lsp_implementation<CR>")

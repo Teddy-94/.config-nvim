@@ -33,6 +33,7 @@ require("lazy").setup({
     { "lewis6991/gitsigns.nvim",     opts = {} },
     { 'echasnovski/mini.surround',   version = '*',                                               opts = {} },
     { "folke/which-key.nvim",        opts = {} },
+    { "folke/trouble.nvim",        opts = {} },
 })
 
 vim.cmd("colorscheme gruvbox")
