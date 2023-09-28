@@ -39,8 +39,19 @@ return {
                         }
                     }
                 end,
+                ["phpactor"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.phpactor.setup({
+                        init_options = {
+                            ["symfony.enabled"] = true,
+                            ["php_code_sniffer.enabled"] = true,
+                            ["php_code_sniffer.bin"] = "/home/teddy/.local/share/nvim/mason/bin/phpcs",
+                            ["language_server_php_cs_fixer.enabled"] = true,
+                            ["language_server_php_cs_fixer.bin"] = "/home/teddy/.local/share/nvim/mason/bin/php-cs-fixer",
+                        }
+                    })
+                end
             }
         },
-
     },
 }
