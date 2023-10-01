@@ -16,8 +16,8 @@ I have made an effort to use as few dependencies/plugins as possible, these are 
 * [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) File browser, file finder, and much more!
 
 * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) for lsp features
-* [mini.completion](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-completion.md) autocomplete
 * [mason.nvim](https://github.com/williamboman/mason.nvim) for handling lsp servers
+* [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) autocomplete
 
 ## Nice to have
 
