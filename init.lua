@@ -28,12 +28,19 @@ require("lazy").setup({
     { import = "colors" },         -- Set colorscheme
     { import = "telescope-nvim" }, -- Install Telescope
     { import = "lsp-setup" },      -- LSP setup
-    { 'echasnovski/mini.completion', version = '*',                                               opts = {} },
-    { "nvim-lualine/lualine.nvim",   dependencies = { "nvim-tree/nvim-web-devicons", opts = {} }, opts = {} },
-    { "lewis6991/gitsigns.nvim",     opts = {} },
-    { 'echasnovski/mini.surround',   version = '*',                                               opts = {} },
-    { "folke/which-key.nvim",        opts = {} },
-    { "folke/trouble.nvim",          opts = { auto_preview = false, } },
+    'hrsh7th/nvim-cmp',
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    { "nvim-lualine/lualine.nvim", opts = {} },
+    { "lewis6991/gitsigns.nvim",   opts = {} },
+    { 'echasnovski/mini.surround', opts = {} },
+    { "folke/which-key.nvim",      opts = {} },
+    { "folke/trouble.nvim",        opts = { auto_preview = false, } },
 })
+
+require("cmp-setup")
 
 vim.cmd("colorscheme gruvbox")
