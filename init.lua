@@ -41,6 +41,6 @@ require("lazy").setup({
     { "folke/trouble.nvim",        opts = { auto_preview = false, } },
 })
 
-require("cmp-setup")
+-- require("cmp-setup")
 
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme onehalfdark")

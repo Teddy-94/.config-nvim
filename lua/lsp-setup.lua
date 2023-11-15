@@ -13,6 +13,7 @@ return {
                 "tailwindcss",
                 "jdtls",
                 "jsonls",
+                "phpactor"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
