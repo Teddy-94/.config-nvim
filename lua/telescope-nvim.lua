@@ -14,6 +14,7 @@ return {
                 wrap_results = true,
                 path_display = { "absolute" },
                 initial_mode = "normal",
+                file_ignore_pattern = {"node_modules"},
             },
             pickers = {
                 find_files = { theme = "ivy", },
@@ -32,10 +33,7 @@ return {
                         }
                     }
                 }
-            },
-            file_ignore_patterns = {
-                "node_modules"
-            },
+            }
         })
         telescope.load_extension("ui-select")
         telescope.load_extension("file_browser")
