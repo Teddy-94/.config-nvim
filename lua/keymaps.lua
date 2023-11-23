@@ -67,8 +67,8 @@ set("n", "<Leader>E", ":Telescope file_browser<CR>", { desc = "toggle file brows
 -- Telescope find / grep keymaps
 set("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
 set("n", "<Leader>fg", "<cmd>Telescope git_files<CR>", { desc = "Find git_files" })
-set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<CR>i", { desc = "Current buffer grep" })
-set("n", "<Leader>G", "<cmd>Telescope grep_string<CR>i", { desc = "Ripgrep" })
+set("n", "<leader>fF", "<cmd>Telescope current_buffer_fuzzy_find<CR>i", { desc = "Current buffer grep" })
+set("n", "<Leader>fG", "<cmd>Telescope grep_string<CR>i", { desc = "Ripgrep" })
 set("n", "<Leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Telescope git status" })
 
 -- Telescope search help files

@@ -14,7 +14,6 @@ return {
                 wrap_results = true,
                 path_display = { "absolute" },
                 initial_mode = "normal",
-                file_ignore_pattern = {"node_modules"},
             },
             pickers = {
                 find_files = { theme = "ivy", },
