@@ -25,7 +25,7 @@ return {
                 },
                 file_browser = {
                     theme = "ivy",
-                    hijack_netrw = true,
+                    hijack_netrw = false,
                     mappings = {
                         ["n"] = {
                             ["a"] = fb_actions.create,
