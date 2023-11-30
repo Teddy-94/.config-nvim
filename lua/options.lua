@@ -8,6 +8,8 @@ vim.keymap.set({ "n", "i" }, "<C-space>", "<nop>")
 -- TODO: find a new key for recording macros
 vim.keymap.set("n", "q", "<nop>")
 vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<leader>q", "q")
+vim.keymap.set("n", "<leader>Q", "Q")
 
 -- Visuals
 vim.opt.scrolloff = 8

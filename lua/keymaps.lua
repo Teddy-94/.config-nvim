@@ -54,15 +54,19 @@ set("n", "<A-S-f>", ":lua=vim.lsp.buf.format()<CR>")
 --set('n', '<leader>t', ":Telescope diagnostics<CR>", { desc = 'Open diagnostics list' })
 set('n', '<leader>t', ":TroubleToggle<CR>", { desc = 'Toggle diagnostics list' })
 
+-- Nvim Tree
+set("n", "<leader>e", ":NvimTreeToggle<CR>")
+set("n", "<leader>E", ":NvimTreeFindFile<CR>")
+
 -- Telescope LSP keymaps
 set("n", "gd", ":Telescope lsp_definitions<CR>")
 set("n", "gr", ":Telescope lsp_references<CR>")
 set("n", "gi", ":Telescope lsp_implementation<CR>")
 
 -- Telescope file browser keymaps
-set("n", "<Leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR><Esc>",
-    { desc = "open file browser at current file" })
-set("n", "<Leader>E", ":Telescope file_browser<CR>", { desc = "toggle file browser" })
+-- set("n", "<Leader>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR><Esc>",
+--     { desc = "open file browser at current file" })
+-- set("n", "<Leader>E", ":Telescope file_browser<CR>", { desc = "toggle file browser" })
 
 -- Telescope find / grep keymaps
 set("n", "<Leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find files" })

@@ -35,6 +35,7 @@ require("lazy").setup({
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     { "nvim-lualine/lualine.nvim", opts = {} },
+    { "nvim-tree/nvim-tree.lua", opts = {} },
     { "lewis6991/gitsigns.nvim",   opts = {} },
     { 'echasnovski/mini.surround', opts = {} },
     { "folke/which-key.nvim",      opts = {} },
