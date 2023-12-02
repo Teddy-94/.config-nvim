@@ -48,8 +48,8 @@ vim.opt.smartindent = true
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript', 'yaml', 'lua', 'jsx', 'tsx', 'typescriptreact', 'javascriptreact' },
   callback = function()
-        vim.api.nvim_command("set tabstop=2")
-        vim.api.nvim_command("set shiftwidth=2")
+        vim.api.nvim_command("setlocal tabstop=2")
+        vim.api.nvim_command("setlocal shiftwidth=2")
         vim.api.nvim_out_write("detected filetype, set indent to 2\n")
     end
 })

@@ -1,6 +1,9 @@
 return {
     "nvim-tree/nvim-tree.lua",
     opts = {
+      view = {
+      width = 60
+      },
         renderer = {
             icons = {
                 git_placement = "signcolumn",
