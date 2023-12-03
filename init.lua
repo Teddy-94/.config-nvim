@@ -39,7 +39,7 @@ require("lazy").setup({
     { "lewis6991/gitsigns.nvim",   opts = {} },
     { 'echasnovski/mini.surround', opts = {} },
     { "folke/which-key.nvim",      opts = {} },
-    { "folke/trouble.nvim",        opts = { auto_preview = false, } },
+    { "folke/trouble.nvim",        opts = { auto_preview = false, icons = false } },
 })
 
 require("cmp-setup")
