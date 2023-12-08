@@ -48,7 +48,7 @@ set("n", "<F2>", ":lua=vim.lsp.buf.rename()<CR>")
 set("n", "<leader>a", ":lua=vim.lsp.buf.code_action()<CR>")
 
 -- Alt-Shift-f to format the buffer using lsp
-set("n", "<A-S-f>", ":lua=vim.lsp.buf.format()<CR>")
+set("n", "<leader>fmt", ":lua=vim.lsp.buf.format()<CR>")
 
 -- LSP Diagnostics
 --set('n', '<leader>t', ":Telescope diagnostics<CR>", { desc = 'Open diagnostics list' })
