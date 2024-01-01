@@ -8,40 +8,15 @@ vim.g.maplocalleader = ' '
 require("options")
 require("keymaps")
 
--- [Plugin setup]
--- Bootsrap Lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",     -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+-- lazy.nvim plugin management
+require("lazy-nvim-setup")
 
-require("lazy").setup({
-  -- If a plugin requires setup etc, it goes in a separate file, that file is then imported here which tells Lazy.nvim to install it.
-  { import = "colors" },           -- Set colorscheme
-  { import = "telescope-nvim" },   -- Install Telescope
-  { import = "lsp-setup" },        -- LSP setup
-  'hrsh7th/nvim-cmp',
-  'L3MON4D3/LuaSnip',
-  'saadparwaiz1/cmp_luasnip',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  { "nvim-lualine/lualine.nvim", opts = {} },
-  { import = "nvim-tree-setup" },
-  { "lewis6991/gitsigns.nvim",   opts = {} },
-  { 'echasnovski/mini.surround', opts = {} },
-  { "folke/which-key.nvim",      opts = {} },
-  { import = "trouble-nvim" }
-})
-
+-- plugins with special setups
+require("telescope-setup")
+require("gitsigns-setup")
 require("cmp-setup")
+require("nvim-tree-setup")
+require("trouble-nvim-setup")
+require("lualine-setup")
 
-vim.cmd("colorscheme onehalfdark")
+vim.cmd("colorscheme catppuccin")

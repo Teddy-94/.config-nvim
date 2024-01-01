@@ -1,13 +1,5 @@
 return {
     {
-        "BBaoVanC/onehalf",
-        config = function(plugin)
-            vim.opt.rtp:append(plugin.dir .. "/vim")
-            vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-            vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-        end,
-    },
-    {
         "rose-pine/neovim",
         config = function()
             require("rose-pine").setup({
@@ -31,7 +23,7 @@ return {
                     folds = false,
                 },
                 strikethrough = false,
-                transparent_mode = true,
+                transparent_mode = false,
             })
         end,
     },
@@ -39,7 +31,7 @@ return {
         "catppuccin/nvim",
         config = function()
             require("catppuccin").setup({
-                transparent_background = true,
+                transparent_background = false,
                 flavour = "frappe", -- latte, frappe, macchiato, mocha
                 background = {      -- :h background
                     light = "latte",
