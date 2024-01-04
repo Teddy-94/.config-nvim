@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>q", "q")
 vim.keymap.set("n", "<leader>Q", "Q")
 
 -- Visuals
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 6
 vim.opt.nu = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
