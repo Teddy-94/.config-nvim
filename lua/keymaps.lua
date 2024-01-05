@@ -15,6 +15,10 @@ set("t", "<Esc>", "<C-\\><C-n>")
 set("v", "J", ":m '>+1<CR>gv=gv")
 set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Keep highlight when indenting
+set("v", ">", ">gv")
+set("v", "<", "<gv")
+
 -- H and L to move to start and end of line and m to %
 set({'n', 'x'}, "H", "^")
 set({'n', 'x'}, "L", "$")
