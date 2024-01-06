@@ -1,7 +1,3 @@
--- [OPTIONS]
--- Here lives the settings related to core vim options and behaviour
-
--- Disable these keys
 -- C-space gets mapped in cmp to bring up completion menu
 vim.keymap.set({ "n", "i" }, "<C-space>", "<nop>")
 

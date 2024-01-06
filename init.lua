@@ -1,5 +1,3 @@
--- Main init.lua.
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = ' '
 
@@ -33,8 +31,8 @@ vim.api.nvim_create_user_command('Prettier',
   end
   , {})
 
-vim.api.nvim_create_user_command('Fmt',
+vim.keymap.set("n", "<leader>fmt",
   function()
     vim.lsp.buf.format()
-  end
-  , {})
+  end, {desc = "vim.lsp.buf.format()"}
+)

@@ -1,4 +1,3 @@
--- [KEYMAPS]
 local set = vim.keymap.set
 -- C-s to save
 set("n", "<C-s>", ":w<CR>")
