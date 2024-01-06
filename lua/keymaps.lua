@@ -43,3 +43,30 @@ set("n", "<C-w>l", "5<C-w>>")
 set("n", "<C-w>h", "5<C-w><")
 set("n", "<C-w>k", "5<C-w>+")
 set("n", "<C-w>j", "5<C-w>-")
+
+vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format() end, { desc = "vim.lsp.buf.format()" })
+
+-- Commands
+vim.api.nvim_create_user_command('Ecs',
+  function()
+    if vim.bo.filetype == "php" then
+      vim.api.nvim_command(":!docker compose -f docker-compose-qa.yaml run -e COMPOSER_MEMORY_LIMIT=4G  ecs --fix %")
+    end
+  end
+  , {})
+
+
+vim.api.nvim_create_user_command('Prettier',
+  function()
+    if vim.bo.filetype == "typescript" or "javascript" then
+      local command = string.format("npx prettier %s", vim.fn.shellescape(vim.fn.expand("%")))
+      local _ = vim.fn.system(command)
+      if vim.v.shell_error ~= 0 then
+        print("Error running prettier, shell_error: ", vim.v.shell_error)
+      else
+        vim.api.nvim_command(":%!npx prettier --stdin-filepath %")
+      end
+    end
+  end
+  , {})
+

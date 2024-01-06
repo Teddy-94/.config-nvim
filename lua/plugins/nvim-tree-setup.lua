@@ -10,7 +10,18 @@ return {
       view = {
         width = 60
       },
+      diagnostics = {
+        enable = true
+      },
+      modified = {
+        enable = true
+      },
+      filters = {
+        git_ignored = false
+      },
       renderer = {
+        highlight_bookmarks = "all",
+        special_files = {},
         icons = {
           git_placement = "signcolumn",
           glyphs = {
@@ -38,8 +49,19 @@ return {
               ignored = "i",
             },
           },
-        }
-      }
+        },
+        indent_markers = {
+          enable = true,
+          inline_arrows = true,
+          icons = {
+            corner = "└",
+            edge = "│",
+            item = "│",
+            bottom = "─",
+            none = " ",
+          },
+        },
+      },
     }
 
     vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")

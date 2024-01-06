@@ -14,15 +14,23 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- If a plugin requires setup etc, it goes in a separate file, that file is then imported here which tells Lazy.nvim to install it.
-  { import = "colors" },    -- Set colorscheme
-  { import = "lsp-setup" }, -- LSP setup
-  { import = "nvim-cmp-setup" },
-  { import = "telescope-setup" },
-  { import = "gitsigns-setup" },
-  { import = "lualine-setup" },
-  { import = "nvim-tree-setup" },
+  { import = "plugins/colors" },
+  { import = "lsp-setup" },
+  { import = "plugins/nvim-cmp-setup" },
+  { import = "plugins/telescope-setup" },
+  { import = "plugins/gitsigns-setup" },
+  { import = "plugins/lualine-setup" },
+  { import = "plugins/nvim-tree-setup" },
+  { import = "plugins/trouble-nvim-setup" },
+  { import = "plugins/nvim-treesitter-setup" },
   { "echasnovski/mini.surround",  opts = {} },
   { "folke/which-key.nvim",       opts = {} },
-  { import = "trouble-nvim-setup" },
-  { "numToStr/Comment.nvim",      opts = {} }
+  { "numToStr/Comment.nvim",      opts = {} },
+  {
+    "mbbill/undotree",
+    config = function()
+      vim.keymap.set("n", "<leader>u",
+        ":UndotreeToggle<CR>:UndotreeFocus<CR>")
+    end
+  },
 })

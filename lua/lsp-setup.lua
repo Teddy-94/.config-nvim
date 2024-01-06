@@ -1,18 +1,24 @@
-local on_attach = function(_, bufnr)
-  local opts = { buffer = bufnr, remap = false }
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-  vim.keymap.set("n", "<C-k>", function() vim.lsp.buf.signature_help() end, opts)
-  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-  vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end, opts)
+local on_attach = function()
+  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
+  vim.keymap.set({ "n", "i" }, "<C-k>", function() vim.lsp.buf.signature_help() end)
+  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
+  vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end)
+
+  -- Telescope LSP keymaps
+  vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")
+  vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
+  vim.keymap.set("n", "gi", ":Telescope lsp_implementation<CR>")
 end
 
 return {
-  { 'williamboman/mason.nvim', config = true },
-  { 'neovim/nvim-lspconfig' },
-
-  {
+  'neovim/nvim-lspconfig',
+  dependencies = {
+    'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
-    opts = {
+  },
+  config = function()
+    require("mason").setup({})
+    require("mason-lspconfig").setup({
       ensure_installed = {
         "lua_ls",
         "tsserver",
@@ -20,7 +26,6 @@ return {
         "html",
         "cssls",
         "tailwindcss",
-        "jdtls",
         "jsonls",
         "phpactor",
         "graphql"
@@ -32,16 +37,10 @@ return {
             on_attach = on_attach
           }
         end,
-        ["tsserver"] = function()
-          local lspconfig = require("lspconfig")
-          lspconfig.tsserver.setup {}
-        end,
-        ["rust_analyzer"] = function()
-          require("rust-tools").setup {}
-        end,
         ["lua_ls"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.lua_ls.setup {
+            on_attach = on_attach,
             settings = {
               Lua = {
                 diagnostics = {
@@ -54,6 +53,7 @@ return {
         ["phpactor"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.phpactor.setup({
+            on_attach = on_attach,
             init_options = {
               ["symfony.enabled"] = true,
               ["language_server_phpstan.enabled"] = true,
@@ -62,6 +62,6 @@ return {
           })
         end
       }
-    },
-  },
+    })
+  end
 }
