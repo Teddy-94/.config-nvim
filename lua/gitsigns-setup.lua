@@ -2,11 +2,22 @@ return {
   "lewis6991/gitsigns.nvim",
   config = function()
     require("gitsigns").setup {
-      current_line_blame = true, current_line_blame_opts = { delay = 500 },
-    }
+      current_line_blame = true,
+      on_attach = function()
+        local gs = package.loaded.gitsigns
 
-    vim.keymap.set("n", "<Leader>Gd", "<cmd>Gitsigns diffthis<cr>", { desc = "Git diff this file" })
-    vim.keymap.set("n", "<Leader>Gwd", "<cmd>Gitsigns toggle_word_diff<cr>", { desc = "Git show word diff" })
-    vim.keymap.set("n", "<Leader>Gb", "<cmd>Gitsigns toggle_current_line_blame<cr>", { desc = "Git toggle blame" })
+        vim.api.nvim_create_user_command('Diff', function()
+          gs.diffthis()
+        end, {})
+
+        vim.api.nvim_create_user_command('Wdiff', function()
+          gs.toggle_word_diff()
+        end, {})
+
+        vim.api.nvim_create_user_command('Blame', function()
+          gs.toggle_current_line_blame()
+        end, {})
+      end
+    }
   end
 }

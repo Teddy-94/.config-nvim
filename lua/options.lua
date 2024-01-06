@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
         vim.api.nvim_command("setlocal tabstop=2")
         vim.api.nvim_command("setlocal shiftwidth=2")
-        vim.api.nvim_out_write("detected filetype, set indent to 2\n")
+        vim.api.nvim_out_write("detected filetype, set indent to 2")
     end
 })
 

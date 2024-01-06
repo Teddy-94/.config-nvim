@@ -3,10 +3,10 @@ return {
     "rose-pine/neovim",
     config = function()
       require("rose-pine").setup({
-        variant = 'auto',              -- 'auto'|'main'|'moon'|'dawn'
-        dark_variant = 'moon',         --  'main'|'moon'|'dawn'
+        variant = 'moon',      -- 'auto'|'main'|'moon'|'dawn'
+        dark_variant = 'moon', --  'main'|'moon'|'dawn'
         disable_italics = true,
-        disable_background = true,
+        disable_background = false,
         disable_float_background = true,
       })
     end,
@@ -28,12 +28,22 @@ return {
     end,
   },
   {
+    'folke/tokyonight.nvim',
+    config = function()
+      require("tokyonight").setup({
+        comments = { italic = true },
+        keywords = { italic = true },
+        vim.cmd.colorscheme 'tokyonight-moon'
+      })
+    end,
+  },
+  {
     "catppuccin/nvim",
     config = function()
       require("catppuccin").setup({
         transparent_background = false,
-        flavour = "frappe",         -- latte, frappe, macchiato, mocha
-        background = {              -- :h background
+        flavour = "frappe", -- latte, frappe, macchiato, mocha
+        background = {      -- :h background
           light = "latte",
           dark = "frappe",
         },
@@ -44,7 +54,7 @@ return {
       }
       )
 
-      vim.cmd("colorscheme catppuccin")
+      -- vim.cmd("colorscheme rose-pine")
     end,
   },
 }

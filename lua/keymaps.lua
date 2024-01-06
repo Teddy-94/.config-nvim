@@ -20,8 +20,8 @@ set("v", ">", ">gv")
 set("v", "<", "<gv")
 
 -- H and L to move to start and end of line and m to %
-set({'n', 'x'}, "H", "^")
-set({'n', 'x'}, "L", "$")
+set({ "n", "x" }, "H", "^")
+set({ "n", "x" }, "L", "$")
 
 -- Tab and Shift-tab to cycle through selections in the popup menu
 set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
@@ -44,12 +44,3 @@ set("n", "<C-w>l", "5<C-w>>")
 set("n", "<C-w>h", "5<C-w><")
 set("n", "<C-w>k", "5<C-w>+")
 set("n", "<C-w>j", "5<C-w>-")
-
--- LSP keymaps
-set("n", "K", ":lua=vim.lsp.buf.hover()<CR>")
-set("n", "<leader>rn", ":lua=vim.lsp.buf.rename()<CR>", { desc = 'Lsp rename' })
-set("n", "<leader>a", ":lua=vim.lsp.buf.code_action()<CR>", { desc = 'Lsp code actions' })
-
-set("n", "<leader>fmt", ":lua=vim.lsp.buf.format()<CR>", { desc = 'Lsp buf format' })
-
-set('n', '<leader>t', ":TroubleToggle<CR>", { desc = 'Toggle diagnostics list' })
