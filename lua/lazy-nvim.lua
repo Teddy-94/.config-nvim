@@ -30,21 +30,13 @@ require("lazy").setup({
   -- utils
   { import = "plugins/gitsigns" },
   { import = "plugins/trouble" },
-  { "echasnovski/mini.surround",  opts = {} },
+  { import = "plugins/surround" },
+  { import = "plugins/comment" },
   { "folke/which-key.nvim",       opts = {} },
-  {
-    "numToStr/Comment.nvim",
-      config = function()
-        require("Comment").setup()
-        vim.keymap.set("n", "<C-/>", "gcc", {remap = true})
-        vim.keymap.set("v", "<C-/>", "gc", {remap = true})
-      end
-  },
   {
     "mbbill/undotree",
     config = function()
-      vim.keymap.set("n", "<leader>u",
-        ":UndotreeToggle<CR>:UndotreeFocus<CR>")
+      vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
     end
   },
 })

@@ -6,5 +6,5 @@ require("options")
 require("keymaps")
 
 -- lazy.nvim plugin management
-require("lazy-nvim-setup")
+require("lazy-nvim")
 
