@@ -13,19 +13,33 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- If a plugin requires setup etc, it goes in a separate file, that file is then imported here which tells Lazy.nvim to install it.
+  -- make it look pretty
   { import = "plugins/colors" },
+  { import = "plugins/lualine" },
+  { import = "plugins/treesitter" },
+
+  -- lsp and autocomplete
   { import = "lsp-setup" },
-  { import = "plugins/nvim-cmp-setup" },
-  { import = "plugins/telescope-setup" },
-  { import = "plugins/gitsigns-setup" },
-  { import = "plugins/lualine-setup" },
-  { import = "plugins/nvim-tree-setup" },
-  { import = "plugins/trouble-nvim-setup" },
-  { import = "plugins/nvim-treesitter-setup" },
+  { import = "plugins/nvim-cmp" },
+
+  -- find and browse files
+  { import = "plugins/telescope" },
+  { import = "plugins/nvim-tree" },
+  { import = "plugins/harpoon" },
+
+  -- utils
+  { import = "plugins/gitsigns" },
+  { import = "plugins/trouble" },
   { "echasnovski/mini.surround",  opts = {} },
   { "folke/which-key.nvim",       opts = {} },
-  { "numToStr/Comment.nvim",      opts = {} },
+  {
+    "numToStr/Comment.nvim",
+      config = function()
+        require("Comment").setup()
+        vim.keymap.set("n", "<C-/>", "gcc", {remap = true})
+        vim.keymap.set("v", "<C-/>", "gc", {remap = true})
+      end
+  },
   {
     "mbbill/undotree",
     config = function()

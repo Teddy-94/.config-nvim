@@ -8,5 +8,3 @@ require("keymaps")
 -- lazy.nvim plugin management
 require("lazy-nvim-setup")
 
-vim.cmd.colorscheme('rose-pine')
-
