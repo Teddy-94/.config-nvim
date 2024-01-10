@@ -55,5 +55,6 @@ vim.o.completeopt = "menuone,noinsert,noselect"
 
 vim.opt.incsearch = true
 
+vim.opt.shortmess = "aFI"
 vim.opt.swapfile = false
 vim.opt.backup = false

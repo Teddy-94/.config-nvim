@@ -1,4 +1,8 @@
-local set = vim.keymap.set
+local function asf()
+
+end
+
+asf()
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.5",
@@ -12,10 +16,50 @@ return {
         layout_strategy = 'vertical',
         layout_config = { vertical = { width = { padding = 1 } } },
         initial_mode = "normal",
-        path_display = function(_, path)
-          return string.format("%s | ", path)
-        end,
+        path_display = { smart = true },
       },
+      pickers = {
+        -- Search
+        find_files = {
+          initial_mode = "insert",
+        },
+        git_files = {
+          initial_mode = "insert"
+        },
+        current_buffer_fuzzy_find = {
+          initial_mode = "insert"
+        },
+        grep_string = {
+          initial_mode = "insert",
+          disable_coordinates = true,
+          only_sort_text = true
+        },
+        help_tags = {
+          initial_mode = "insert"
+        },
+        man_pages = {
+          initial_mode = "insert"
+        },
+        git_status = {
+          initial_mode = "normal"
+        },
+        buffers = {
+          initial_mode = "normal"
+        },
+        -- LSP
+        lsp_references = {
+          initial_mode = "normal",
+          include_declaration = false,
+          fname_width = 60,
+          trim_text = true
+        },
+        lsp_definitions = {
+          initial_mode = "normal"
+          },
+        lsp_implementations = {
+          initial_mode = "normal"
+        },
+      }
     }
 
     vim.api.nvim_create_autocmd("User", {
@@ -25,13 +69,21 @@ return {
       end
     })
 
-    set("n", "<Leader>ff", ":Telescope find_files<CR>i", { desc = "Find files" })
-    set("n", "<Leader>fF", ":Telescope git_files<CR>i", { desc = "Find git_files" })
-    set("n", "<leader>/", ":Telescope current_buffer_fuzzy_find<CR>i", { desc = "Current buffer fuzzy find" })
-    set({ "n", "x" }, "<Leader>fg", "<cmd>lua=require('telescope.builtin').grep_string({disable_coordinates = true})<CR>i", { desc = "Ripgrep" })
-    set("n", "<Leader>gs", ":Telescope git_status<CR>", { desc = "Telescope git status" })
-    set("n", "<Leader>b", ":Telescope buffers<CR>", { desc = "Telescope buffers" })
+    local set = vim.keymap.set
+    local tb = require('telescope.builtin')
+    set("n", "<Leader>ff", tb.find_files, { desc = "Find files" })
+    set("n", "<Leader>fF", tb.git_files, { desc = "Find git_files" })
+    set("n", "<leader>/", tb.current_buffer_fuzzy_find, { desc = "Current buffer fuzzy find" })
+    set({ "n", "x" }, "<Leader>fg", tb.grep_string, { desc = "Ripgrep" })
+    set("n", "<Leader>fh", tb.help_tags, { desc = "Telescope Search Help" })
+    set("n", "<Leader>fm", tb.man_pages, { desc = "Telescope Search Manual" })
+
+    set("n", "<Leader>gs", tb.git_status, { desc = "Telescope git status" })
+    set("n", "<Leader>fb", tb.buffers, { desc = "Telescope buffers" })
     set("n", "<Leader>T", ":Telescope<CR>", { desc = "Telescope" })
-    set("n", "<Leader>fh", ":Telescope help_tags<CR>i", { desc = "Telescope Search Help" })
+
+    set("n", "gd", tb.lsp_definitions, { desc = "go to definition" })
+    set("n", "gr", tb.lsp_references, { desc = "go to references" })
+    set("n", "gi", tb.lsp_implementations, { desc = "go to implementation" })
   end
 }

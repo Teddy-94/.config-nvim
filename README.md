@@ -32,8 +32,8 @@ I have made an effort to use as few dependencies/plugins as possible, these are 
 
 
 ## Color
-These are the color schemes I rotate between. In all applicable cases, italics and strikethroughs are disabled.
-* [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) variant: moon
-* [catppuccin](https://github.com/catppuccin/nvim) variant: frappe
+These are the color schemes I rotate between.
+I always disable italics and strikethroughs, and use transparent background.
+* [kanagawa]("https://github.com/rebelot/kanagawa.nvim") variant: dragon
 * [rose-pine](https://github.com/rose-pine/neovim) variant: moon
-* [gruvbox](https://github.com/gruvbox-community/gruvbox)
+* [tokyonight.nvim](https://github.com/folke/tokyonight.nvim) variant: moon

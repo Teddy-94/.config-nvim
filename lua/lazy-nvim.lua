@@ -13,30 +13,56 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  -- make it look pretty
-  { import = "plugins/colors" },
-  { import = "plugins/lualine" },
-  { import = "plugins/treesitter" },
-
-  -- lsp and autocomplete
-  { import = "lsp-setup" },
-  { import = "plugins/nvim-cmp" },
-
-  -- find and browse files
-  { import = "plugins/telescope" },
-  { import = "plugins/nvim-tree" },
-  { import = "plugins/harpoon" },
-
-  -- utils
-  { import = "plugins/gitsigns" },
-  { import = "plugins/trouble" },
-  { import = "plugins/surround" },
-  { import = "plugins/comment" },
-  { "folke/which-key.nvim",       opts = {} },
-  {
-    "mbbill/undotree",
-    config = function()
-      vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
-    end
+  defaults = {
+    lazy = false,
   },
+  spec = {
+    -- make it look pretty
+    { import = "plugins/colors" },
+    { import = "plugins/lualine" },
+    { import = "plugins/treesitter" },
+
+    -- lsp and autocomplete
+    { import = "lsp-setup" },
+    { import = "plugins/nvim-cmp" },
+
+    -- find and browse files
+    { import = "plugins/telescope" },
+    { import = "plugins/nvim-tree" },
+    { import = "plugins/harpoon" },
+
+    -- utils
+    { import = "plugins/gitsigns" },
+    { import = "plugins/trouble" },
+    { import = "plugins/surround" },
+    { import = "plugins/comment" },
+    { "folke/which-key.nvim",       opts = {} },
+    {
+      "mbbill/undotree",
+      config = function()
+        vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
+      end
+    },
+  },
+  ui = {
+    icons = {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    },
+  },
+  change_detection = {
+    enabled = true,
+    notify = false, -- get a notification when changes are found
+  }
 })

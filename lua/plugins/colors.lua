@@ -1,5 +1,5 @@
 local function setColorscheme()
-  vim.cmd.colorscheme('rose-pine')
+  vim.cmd.colorscheme('kanagawa')
 end
 
 return {
@@ -11,6 +11,20 @@ return {
     end
   },
   {
+    "rebelot/kanagawa.nvim",
+    config = function()
+      require('kanagawa').setup({
+        commentStyle = { italic = false },
+        functionStyle = {},
+        keywordStyle = { italic = false },
+        statementStyle = { bold = false },
+        typeStyle = {},
+        transparent = vim.g.transparent_enabled,
+        theme = "dragon",
+      })
+    end
+  },
+  {
     "rose-pine/neovim",
     config = function()
       require("rose-pine").setup({
@@ -18,24 +32,7 @@ return {
         dark_variant = 'moon', --  'main'|'moon'|'dawn'
         disable_italics = true,
         disable_background = vim.g.transparent_enabled,
-        disable_float_background = false,
-      })
-      setColorscheme()
-    end,
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    config = function()
-      require("gruvbox").setup({
-        italic = {
-          strings = false,
-          emphasis = false,
-          comments = false,
-          operators = false,
-          folds = false,
-        },
-        strikethrough = false,
-        transparent_mode = vim.g.transparent_enabled,
+        disable_float_background = vim.g.transparent_enabled,
       })
       setColorscheme()
     end,
@@ -50,24 +47,6 @@ return {
           keywords = { italic = false },
         },
         transparent = vim.g.transparent_enabled,
-      })
-      setColorscheme()
-    end,
-  },
-  {
-    "catppuccin/nvim",
-    config = function()
-      require("catppuccin").setup({
-        transparent_background = vim.g.transparent_enabled,
-        flavour = "frappe", -- latte, frappe, macchiato, mocha
-        background = {      -- :h background
-          light = "latte",
-          dark = "frappe",
-        },
-        styles = {
-          comments = {},
-          conditionals = {},
-        }
       })
       setColorscheme()
     end,

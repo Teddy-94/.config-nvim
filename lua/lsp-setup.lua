@@ -3,11 +3,6 @@ local on_attach = function()
   vim.keymap.set({ "n", "i" }, "<C-k>", function() vim.lsp.buf.signature_help() end)
   vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
   vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end)
-
-  -- Telescope LSP keymaps
-  vim.keymap.set("n", "gd", ":Telescope lsp_definitions<CR>")
-  vim.keymap.set("n", "gr", ":Telescope lsp_references<CR>")
-  vim.keymap.set("n", "gi", ":Telescope lsp_implementation<CR>")
 end
 
 return {
