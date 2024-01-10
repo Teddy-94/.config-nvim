@@ -3,10 +3,9 @@ return {
     "thePrimeagen/harpoon",
     branch = "harpoon2",
     config = function()
-      vim.keymap.set("n", "<leader>ha",
-        function() require('harpoon.mark').add_file() end)
-      vim.keymap.set("n", "<leader>hh",
-        function() require('harpoon.ui').toggle_quick_menu() end)
-    end
+      local harpoon = require('harpoon')
+      harpoon:setup()
+      vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end)
+      vim.keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end) end
   }
 }
