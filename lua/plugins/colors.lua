@@ -11,7 +11,8 @@ return {
     end
   },
   {
-    "rebelot/kanagawa.nvim",
+    -- "rebelot/kanagawa.nvim",
+    "teddy-94/kanagawa.nvim",
     config = function()
       require('kanagawa').setup({
         commentStyle = { italic = false },
