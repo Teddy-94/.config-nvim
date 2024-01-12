@@ -20,7 +20,6 @@ return {
         "eslint",
         "html",
         "cssls",
-        "tailwindcss",
         "jsonls",
         "phpactor",
         "graphql"

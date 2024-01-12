@@ -20,6 +20,7 @@ require("lazy").setup({
     -- make it look pretty
     { import = "plugins/colors" },
     { import = "plugins/lualine" },
+    { import = "plugins/fidget" },
     { import = "plugins/treesitter" },
 
     -- lsp and autocomplete
@@ -63,6 +64,6 @@ require("lazy").setup({
   },
   change_detection = {
     enabled = true,
-    notify = false, -- get a notification when changes are found
+    notify = true, -- get a notification when changes are found
   }
 })
