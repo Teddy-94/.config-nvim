@@ -27,7 +27,7 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzz")
-vim.keymap.set("n", "p", "pzz")
+vim.keymap.set("n", "N", "Nzz")
 
 vim.opt.wrap = false
 -- This lets j and k navigate over wrapped lines as if they were real lines
