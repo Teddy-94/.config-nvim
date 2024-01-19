@@ -22,10 +22,12 @@ vim.keymap.set({ "x", "v" }, "p", "P")
 -- Dont move the cursor when yanking in visual mode
 vim.keymap.set({ "x", "v" }, "y", "ygv<esc>")
 
--- Keep cursor in the middle when using J, C-d or C-u
+-- Keep cursor in the middle when using J, C-d, C-u, and search
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "p", "pzz")
 
 vim.opt.wrap = false
 -- This lets j and k navigate over wrapped lines as if they were real lines
