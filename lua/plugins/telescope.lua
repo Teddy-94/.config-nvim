@@ -29,6 +29,9 @@ return {
         current_buffer_fuzzy_find = {
           initial_mode = "insert"
         },
+        live_grep = {
+          initial_mode = "insert",
+        },
         grep_string = {
           initial_mode = "insert",
           disable_coordinates = true,
@@ -73,7 +76,8 @@ return {
     local tb = require('telescope.builtin')
     set("n", "<Leader>ff", tb.find_files, { desc = "Find files" })
     set("n", "<Leader>fF", tb.git_files, { desc = "Find git_files" })
-    set("n", "<leader>/", tb.current_buffer_fuzzy_find, { desc = "Current buffer fuzzy find" })
+    set("n", "<Leader>fo", tb.oldfiles, { desc = "Find recently opened files" })
+    set("n", "<leader>/", tb.live_grep, { desc = "Live grep" })
     set({ "n", "x" }, "<Leader>fg", tb.grep_string, { desc = "Ripgrep" })
     set("n", "<Leader>fh", tb.help_tags, { desc = "Telescope Search Help" })
     set("n", "<Leader>fm", tb.man_pages, { desc = "Telescope Search Manual" })

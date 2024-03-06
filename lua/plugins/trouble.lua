@@ -16,6 +16,6 @@ return {
       },
       use_diagnostic_signs = false
     }
-    vim.keymap.set('n', '<leader>t', ":TroubleToggle<CR>", { desc = 'Toggle diagnostics list' })
+    -- vim.keymap.set('n', '<leader>t', ":TroubleToggle<CR>", { desc = 'Toggle diagnostics list' })
   end
 }

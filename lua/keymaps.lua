@@ -46,6 +46,7 @@ set("n", "<C-w>k", "5<C-w>+")
 set("n", "<C-w>j", "5<C-w>-")
 
 vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format() end, { desc = "vim.lsp.buf.format()" })
+vim.keymap.set("n", "<leader>t", function () vim.diagnostic.open_float() end, { desc = "open diagnostics float" })
 
 -- Commands
 vim.api.nvim_create_user_command('Ecs',
