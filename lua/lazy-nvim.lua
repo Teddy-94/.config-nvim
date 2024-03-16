@@ -34,6 +34,7 @@ require("lazy").setup({
 
     -- utils
     { import = "plugins/gitsigns" },
+    { import = "plugins/neogit" },
     { import = "plugins/trouble" },
     { import = "plugins/surround" },
     { import = "plugins/comment" },
