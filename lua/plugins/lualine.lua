@@ -19,9 +19,9 @@ return {
       sections = {
         lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end } },
         lualine_b = { 'branch', 'diff', 'diagnostics' },
-        lualine_c = { { 'filename', path = 1 }, lsp_progress },
+        lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'filetype' },
-        lualine_y = {},
+        lualine_y = { lsp_progress, },
         lualine_z = { 'location' }
       },
     })

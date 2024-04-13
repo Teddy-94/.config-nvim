@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>Q", "Q")
 -- Visuals
 vim.opt.scrolloff = 6
 vim.opt.nu = true
+vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.termguicolors = true

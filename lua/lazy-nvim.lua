@@ -45,6 +45,7 @@ require("lazy").setup({
         vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
       end
     },
+    { "github/copilot.vim" },
   },
   ui = {
     icons = {
