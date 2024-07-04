@@ -50,8 +50,7 @@ return {
             on_attach = on_attach,
             init_options = {
               ["symfony.enabled"] = true,
-              ["language_server_phpstan.enabled"] = true,
-              ["language_server_phpstan.bin"] = "/Users/teodor.adolfsson/.local/share/nvim/mason/packages/phpstan"
+              ["language_server_phpstan.enabled"] = false,
             }
           })
         end

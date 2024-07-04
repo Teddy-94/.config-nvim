@@ -19,7 +19,7 @@ require("lazy").setup({
   spec = {
     -- make it look pretty
     { import = "plugins/colors" },
-    { import = "plugins/lualine" },
+    -- { import = "plugins/lualine" },
     { import = "plugins/fidget" },
     { import = "plugins/treesitter" },
 
@@ -46,6 +46,7 @@ require("lazy").setup({
       end
     },
     { "github/copilot.vim" },
+    { import = "plugins/oil" },
   },
   ui = {
     icons = {
