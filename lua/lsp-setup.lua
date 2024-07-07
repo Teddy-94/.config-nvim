@@ -21,8 +21,11 @@ return {
         "html",
         "cssls",
         "jsonls",
+        "yamlls",
         "phpactor",
-        "graphql"
+        "graphql",
+        "gopls",
+        "pyright",
       },
       handlers = {
         function(server_name) -- default handler (optional)
