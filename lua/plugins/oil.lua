@@ -6,5 +6,6 @@ return {
         show_hidden = true,
       }
     })
+    vim.keymap.set("n", "<leader>oi", function() require('oil').open_float() end)
   end,
 }
