@@ -1,5 +1,5 @@
 local function setColorscheme()
-  vim.cmd.colorscheme('kanagawa')
+  vim.cmd.colorscheme('vscode')
 end
 
 return {
@@ -7,7 +7,29 @@ return {
     "xiyaowong/transparent.nvim",
     opts = {},
     config = function()
-      vim.api.nvim_command(":TransparentEnable")
+      vim.api.nvim_command(":TransparentDisable")
+    end
+  },
+  {
+    "slugbyte/lackluster.nvim",
+  },
+  {
+    "Mofiqul/vscode.nvim"
+  },
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      require("onedark").setup({
+        style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+        code_style = {
+          comments = 'none',
+          keywords = 'none',
+          functions = 'none',
+          strings = 'none',
+          variables = 'none'
+        }
+      })
+      setColorscheme()
     end
   },
   {

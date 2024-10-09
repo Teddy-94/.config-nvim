@@ -1,5 +1,7 @@
 -- C-space gets mapped in cmp to bring up completion menu
 vim.keymap.set({ "n", "i" }, "<C-space>", "<nop>")
+-- Prevent accidentaly crashing buffers when input language is set to Swedish
+vim.keymap.set({ "n", "i" }, "Ö", "<nop>")
 
 -- TODO: find a new key for recording macros
 vim.keymap.set("n", "q", "<nop>")
@@ -10,7 +12,6 @@ vim.keymap.set("n", "<leader>Q", "Q")
 -- Visuals
 vim.opt.scrolloff = 6
 vim.opt.nu = true
-vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
