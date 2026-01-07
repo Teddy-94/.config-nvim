@@ -1,0 +1,104 @@
+{
+  "plugins": {
+    "Comment.nvim": {
+      "rev": "e30b7f2",
+      "src": "https://github.com/numToStr/Comment.nvim"
+    },
+    "LuaSnip": {
+      "rev": "3732756",
+      "src": "https://github.com/L3MON4D3/LuaSnip"
+    },
+    "cmp-nvim-lsp": {
+      "rev": "cbc7b02",
+      "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
+    },
+    "cmp_luasnip": {
+      "rev": "98d9cb5",
+      "src": "https://github.com/saadparwaiz1/cmp_luasnip"
+    },
+    "diffview.nvim": {
+      "rev": "4516612",
+      "src": "https://github.com/sindrets/diffview.nvim"
+    },
+    "fidget.nvim": {
+      "rev": "6446302",
+      "src": "https://github.com/j-hui/fidget.nvim"
+    },
+    "gitsigns.nvim": {
+      "rev": "dfac404",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "kanagawa.nvim": {
+      "rev": "84f82e0",
+      "src": "https://github.com/teddy-94/kanagawa.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c4",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "4cfe411",
+      "src": "https://github.com/williamboman/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "57e5a8a",
+      "src": "https://github.com/williamboman/mason.nvim"
+    },
+    "mini.surround": {
+      "rev": "cc7b9d0",
+      "src": "https://github.com/echasnovski/mini.surround"
+    },
+    "neogit": {
+      "rev": "d8bf9102",
+      "src": "https://github.com/NeogitOrg/neogit"
+    },
+    "neovim": {
+      "rev": "cf2a288",
+      "src": "https://github.com/rose-pine/neovim"
+    },
+    "nvim-cmp": {
+      "rev": "85bbfad",
+      "src": "https://github.com/hrsh7th/nvim-cmp"
+    },
+    "nvim-lspconfig": {
+      "rev": "0b38bc7",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-tree.lua": {
+      "rev": "b8b44b6",
+      "src": "https://github.com/nvim-tree/nvim-tree.lua"
+    },
+    "oil.nvim": {
+      "rev": "81b8a91",
+      "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "ripgrep": {
+      "rev": "0a88ccc",
+      "src": "https://github.com/BurntSushi/ripgrep"
+    },
+    "telescope.nvim": {
+      "rev": "3333a52",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "trouble.nvim": {
+      "rev": "bd67efe",
+      "src": "https://github.com/folke/trouble.nvim"
+    },
+    "undotree": {
+      "rev": "178d19e",
+      "src": "https://github.com/mbbill/undotree"
+    },
+    "vscode.nvim": {
+      "rev": "aa1102a",
+      "src": "https://github.com/Mofiqul/vscode.nvim"
+    },
+    "which-key.nvim": {
+      "rev": "3aab214",
+      "src": "https://github.com/folke/which-key.nvim"
+    }
+  }
+}
