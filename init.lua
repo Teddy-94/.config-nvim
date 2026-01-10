@@ -1,146 +1,141 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = ' '
-vim.pack.add({
-  "https://github.com/nvim-lua/plenary.nvim",
-})
 
-require("options")
-require("keymaps")
+vim.opt.shortmess = "aFI"
+vim.opt.swapfile = false
+vim.opt.backup = false
+--
+-- C-space gets mapped in cmp to bring up completion menu
+vim.keymap.set({ "n", "i" }, "<C-space>", "<nop>")
+-- Prevent accidentaly crashing buffers when input language is set to Swedish
+vim.keymap.set({ "n", "i" }, "Ö", "<nop>")
+
+-- TODO: find a new key for recording macros
+vim.keymap.set("n", "q", "<nop>")
+vim.keymap.set("n", "Q", "<nop>")
+vim.keymap.set("n", "<leader>q", "q")
+vim.keymap.set("n", "<leader>Q", "Q")
+
+vim.opt.scrolloff = 6
+vim.opt.nu = true
+vim.opt.signcolumn = "yes"
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.incsearch = true
+vim.opt.updatetime = 50
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.smartindent = true
+
+-- Use system clipboard
+vim.opt.clipboard = "unnamedplus"
+-- Dont overwrite clipboard when pasting in visual mode
+vim.keymap.set({ "x", "v" }, "p", "P")
+
+-- Dont move the cursor when yanking in visual mode
+vim.keymap.set({ "x", "v" }, "y", "ygv<esc>")
+
+-- Keep cursor in the middle when using J, C-d, C-u, and search
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzz")
+vim.keymap.set("n", "N", "Nzz")
+
+vim.opt.wrap = false
+-- This lets j and k navigate over wrapped lines as if they were real lines
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = "menuone,noinsert,noselect"
+
+-- C-s to save
+vim.keymap.set("n", "<C-s>", ":w<CR>")
+vim.keymap.set("n", "<D-s>", ":w<CR>")
+
+-- C-l to clear any highlights
+vim.keymap.set("n", "<C-l>", ":noh<CR>")
+
+-- Open a terminal buffer in the current dir and puts you in edit
+vim.keymap.set("n", "<C-t>", ":bel new<CR>:term<CR>a")
+-- map esc to get into normal mode when in a term buffer
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+
+-- Shift j and k moves visual seleciton down and up
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Keep highlight when indenting
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
+
+-- H and L to move to start and end of line and m to %
+vim.keymap.set({ "n", "x" }, "H", "^")
+vim.keymap.set({ "n", "x" }, "L", "$")
+
+-- Tab and Shift-tab to cycle through selections in the popup menu
+vim.keymap.set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
+vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
+
+-- Navigating between windows
+vim.keymap.set("n", "<leader>wh", "<C-w>h")
+vim.keymap.set("n", "<leader>wj", "<C-w>j")
+vim.keymap.set("n", "<leader>wk", "<C-w>k")
+vim.keymap.set("n", "<leader>wl", "<C-w>l")
+
+-- Creating and moving splits
+vim.keymap.set("n", "<leader>ws", ":split<CR><C-w>j", { desc = "Split Horizontally" })
+vim.keymap.set("n", "<leader>wv", ":vsplit<CR><C-w>l", { desc = "Split Vertically" })
+vim.keymap.set("n", "<leader>wH", "<C-w>H", { desc = "Move split left" })
+vim.keymap.set("n", "<leader>wJ", "<C-w>J", { desc = "Move split down" })
+
+-- Window resizing
+vim.keymap.set("n", "<C-w>l", "5<C-w>>")
+vim.keymap.set("n", "<C-w>h", "5<C-w><")
+vim.keymap.set("n", "<C-w>k", "5<C-w>+")
+vim.keymap.set("n", "<C-w>j", "5<C-w>-")
+
+vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end, { desc = "vim.lsp.buf.code_action()" })
+vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format() end, { desc = "vim.lsp.buf.format()" })
+-- vim.keymap.set("n", "<leader>t", function () vim.diagnostic.open_float() end, { desc = "open diagnostics float" })
+
+-- Plugins
+vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim", })
+vim.pack.add({ "https://github.com/Mofiqul/vscode.nvim", })
+vim.pack.add({ "https://github.com/rose-pine/neovim", })
+require("rose-pine").setup({
+  variant = 'moon',      -- 'auto'|'main'|'moon'|'dawn'
+  dark_variant = 'moon', --  'main'|'moon'|'dawn'
+  disable_italics = true,
+  disable_background = vim.g.transparent_enabled,
+  disable_float_background = vim.g.transparent_enabled,
+})
+vim.pack.add({ "https://github.com/teddy-94/kanagawa.nvim" })
+require 'kanagawa'.setup({
+  commentStyle = { italic = false },
+  functionStyle = {},
+  keywordStyle = { italic = false },
+  statementStyle = { bold = false },
+  typeStyle = {},
+  transparent = vim.g.transparent_enabled,
+  theme = "wave",
+})
+vim.cmd("colorscheme kanagawa")
 require("lsp-setup")
+
 require("telescope-setup")
+require("lualine-setup")
+require("fidget-setup")
 require("nvim-tree-setup")
-require("colors")
 
--- git stuff
-vim.pack.add({
-  "https://github.com/NeogitOrg/neogit",
-  "https://github.com/sindrets/diffview.nvim",
-})
-require("neogit").setup({
-  vim.keymap.set("n", "<leader>H", ":Neogit<CR>", { desc = "Neogit" })
-})
-
-vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
-require("gitsigns").setup {
-  current_line_blame = false,
-  on_attach = function()
-    local gs = require('gitsigns')
-    vim.keymap.set("n", "<leader>hd", gs.diffthis, { desc = "diffthis", silent = true })
-    vim.keymap.set("n", "<leader>hD", function() gs.diffthis('origin/main') end, { desc = "diffthis origin/main" })
-    vim.keymap.set("n", "<leader>hb", gs.blame_line, { desc = "Gitsigns blame line" })
-
-    vim.keymap.set("n", "<leader>hp", gs.preview_hunk, { desc = "Gitsigns preview hunk" })
-    vim.keymap.set("n", "<leader>hn", gs.next_hunk, { desc = "Gitsigns next hunk" })
-    vim.keymap.set("n", "<leader>hN", gs.prev_hunk, { desc = "Gitsigns previous hunk" })
-
-    vim.keymap.set("n", "<leader>hs", gs.stage_hunk, { desc = "Gitsigns stage hunk" })
-    vim.keymap.set("n", "<leader>hi", gs.undo_stage_hunk, { desc = "Gitsigns undo_stage_hunk" })
-  end
-}
-
--- UI stuff
-vim.pack.add({ "https://github.com/nvim-lualine/lualine.nvim" })
-require('lualine').setup({
-  options = {
-    icons_enabled = false,
-    globalstatus = true,
-  },
-  sections = {
-    lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end } },
-    lualine_b = { 'branch', 'diff' },
-    lualine_c = { { 'filename', path = 1 } },
-    lualine_x = {'diagnostics' },
-    lualine_y = { 'filetype' },
-    lualine_z = { 'location' }
-  },
-})
-vim.o.laststatus = 3 -- removes the nvim statusbar since we are using lualine
-
-vim.pack.add({ "https://github.com/j-hui/fidget.nvim" })
-require("fidget").setup({
-  notification = {
-    override_vim_notify = true,
-    window = {
-      normal_hl = "",
-      winblend = 50,
-      border = "none",
-      avoid = { "NvimTree" }
-    },
-  },
-})
-
-vim.pack.add({ "https://github.com/folke/which-key.nvim" })
-require("which-key").setup({
-  delay = 500,
-  icons = { mappings = false },
-})
-
-vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
-require('oil').setup({
-  view_options = {
-    show_hidden = true,
-  }
-})
-vim.keymap.set("n", "<leader>oi", function() require('oil').open_float() end)
-
--- Editor stuff: comments, surround, undo, diagnostics
+require("surround-setup")
+require("comment-nvim-setup")
+require("oil-setup")
+require("trouble-setup")
+require("git-integrations")
+vim.pack.add({ "https://github.com/catgoose/nvim-colorizer.lua" })
 vim.pack.add({ "https://github.com/mbbill/undotree" })
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
-
-vim.pack.add({ "https://github.com/numToStr/Comment.nvim" })
-require("Comment").setup({
-  padding = true,
-  sticky = true, ---Whether the cursor should stay at its position
-  ignore = nil,  ---Lines to be ignored while (un)comment
-  mappings = {
-    ---NOTE: If given `false` then the plugin won't create any mappings
-    basic = false, ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
-    extra = false, ---Extra mapping; `gco`, `gcO`, `gcA`
-  },
-})
-
-vim.keymap.set('n', '<C-_>', function()require('Comment.api').toggle.linewise.current() end, { noremap = true })
-
-local esc = vim.api.nvim_replace_termcodes(
-  '<ESC>', true, false, true
-)
-vim.keymap.set('x', '<C-_>', function()
-  vim.api.nvim_feedkeys(esc, 'nx', false)
-  require('Comment.api').toggle.linewise(vim.fn.visualmode())
-end, { noremap = true })
-
-vim.pack.add({ "https://github.com/echasnovski/mini.surround" })
-require("mini.surround").setup({
-  opts = {
-    mappings = {
-      add = "sa",
-      replace = "sr",
-      delete = "",
-      find = "",
-      find_left = "",
-      highlight = "",
-      update_n_lines = "",
-      suffix_last = "",
-      suffix_next = "",
-    },
-    respect_selection_type = true
-  }
-})
-
-vim.pack.add({ "https://github.com/folke/trouble.nvim" })
-require("trouble").setup {
-  action_keys = {
-    jump = {},
-    jump_close = { "<CR>" }
-  },
-  auto_preview = false,
-  signs = {
-    error = "E",
-    warning = "W",
-    hint = "H",
-    information = "I"
-  },
-  use_diagnostic_signs = false
-}
-vim.keymap.set('n', '<leader>t', ":Trouble diagnostics toggle<CR>", { desc = 'Toggle diagnostics list' })
-
