@@ -60,6 +60,10 @@
       "rev": "85bbfad",
       "src": "https://github.com/hrsh7th/nvim-cmp"
     },
+    "nvim-colorizer.lua": {
+      "rev": "81e676d",
+      "src": "https://github.com/catgoose/nvim-colorizer.lua"
+    },
     "nvim-lspconfig": {
       "rev": "0b38bc7",
       "src": "https://github.com/neovim/nvim-lspconfig"
