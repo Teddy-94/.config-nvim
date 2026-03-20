@@ -33,59 +33,66 @@ cmp.setup {
   },
 }
 
-local on_attach = function()
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end)
-  vim.keymap.set({ "n", "i" }, "<C-k>", function() vim.lsp.buf.signature_help() end)
-  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
-  vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end)
-end
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local opts = { buffer = args.buf }
+    vim.keymap.set({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
+  end,
+})
 
-require("mason").setup({})
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+capabilities.general = capabilities.general or {}
+capabilities.general.positionEncodings = { 'utf-16' }
+
+vim.lsp.config('*', {
+  capabilities = capabilities,
+})
+
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { "vim" }
+      }
+    }
+  }
+})
+
+vim.lsp.config('oxlint', {
+  cmd = { 'oxlint', '--lsp' },
+  root_dir = function(bufnr, on_dir)
+    local fname = vim.api.nvim_buf_get_name(bufnr)
+    local git_dir = vim.fs.find('.git', { path = fname, upward = true })[1]
+    if git_dir then
+      on_dir(vim.fs.dirname(git_dir))
+    end
+  end,
+})
+
+vim.lsp.config('oxfmt', {
+  cmd = { 'oxfmt', '--lsp' },
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+  },
+  root_markers = { '.oxfmtrc.json', 'package.json', '.git' },
+})
+
+require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
-    "ts_ls",
-    "eslint",
-    "html",
-    "cssls",
     "jsonls",
     "yamlls",
+    "tsgo",
+    "oxlint",
+    "oxfmt",
   },
-  handlers = {
-    function(server_name) -- default handler (optional)
-      require("lspconfig")[server_name].setup {
-        capbilities = require('cmp_nvim_lsp').default_capabilities(),
-        on_attach = on_attach
-      }
-    end,
-    ["lua_ls"] = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup {
-        on_attach = on_attach,
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" }
-            }
-          }
-        }
-      }
-    end,
-    ["ts_ls"] = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.ts_ls.setup({
-        on_attach = on_attach,
-        root_dir = lspconfig.util.root_pattern("package.json"),
-        single_file_support = false
-      })
-    end,
-    ["denols"] = function()
-      local lspconfig = require("lspconfig")
-      lspconfig.denols.setup({
-        on_attach = on_attach,
-        root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-      })
-    end
-  }
 })
+
+vim.lsp.enable('oxfmt')
 
