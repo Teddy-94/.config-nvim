@@ -17,6 +17,7 @@ vim.keymap.set("n", "<leader>q", "q")
 vim.keymap.set("n", "<leader>Q", "Q")
 
 vim.opt.scrolloff = 6
+vim.opt.sidescrolloff = 10
 vim.opt.nu = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
