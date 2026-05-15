@@ -105,17 +105,8 @@ vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format() end, { desc =
 
 -- Plugins
 vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim", })
-vim.pack.add({ "https://github.com/Mofiqul/vscode.nvim", })
-vim.pack.add({ "https://github.com/rose-pine/neovim", })
-require("rose-pine").setup({
-  variant = 'moon',      -- 'auto'|'main'|'moon'|'dawn'
-  dark_variant = 'moon', --  'main'|'moon'|'dawn'
-  disable_italics = true,
-  disable_background = vim.g.transparent_enabled,
-  disable_float_background = vim.g.transparent_enabled,
-})
 vim.pack.add({ "https://github.com/teddy-94/kanagawa.nvim" })
-require 'kanagawa'.setup({
+require('kanagawa').setup({
   commentStyle = { italic = false },
   functionStyle = {},
   keywordStyle = { italic = false },
