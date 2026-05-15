@@ -2,13 +2,19 @@ vim.pack.add({
   "https://github.com/nvim-telescope/telescope.nvim",
   "https://github.com/BurntSushi/ripgrep",
 })
+local actions = require("telescope.actions")
 require("telescope").setup {
   defaults = {
     wrap_results = false,
     layout_strategy = 'vertical',
     layout_config = { vertical = { width = { padding = 1 } } },
     initial_mode = "normal",
-    path_display = { smart = true },
+    path_display = { smart = false },
+    mappings = {
+      n = {
+        ["<leader>fl"] = actions.send_to_qflist + actions.open_qflist,
+      }
+    }
   },
   pickers = {
     -- Search
@@ -38,9 +44,6 @@ require("telescope").setup {
     git_status = {
       initial_mode = "normal"
     },
-    buffers = {
-      initial_mode = "normal"
-    },
     -- LSP
     lsp_references = {
       initial_mode = "normal",
@@ -66,18 +69,17 @@ vim.api.nvim_create_autocmd("User", {
 
 local set = vim.keymap.set
 local tb = require('telescope.builtin')
-set("n", "<Leader>ff", tb.find_files, { desc = "Find files" })
-set("n", "<Leader>fF", tb.git_files, { desc = "Find git_files" })
-set("n", "<Leader>fo", tb.oldfiles, { desc = "Find recently opened files" })
+set("n", "<leader>ff", tb.find_files, { desc = "Find files" })
+set("n", "<leader>fF", tb.git_files, { desc = "Find git_files" })
+set("n", "<leader>fo", tb.oldfiles, { desc = "Find recently opened files" })
 set("n", "<leader>/", tb.live_grep, { desc = "Live grep" })
 set("n", "<C-f>", tb.live_grep, { desc = "Live grep" })
-set({ "n", "x" }, "<Leader>fg", tb.grep_string, { desc = "Ripgrep" })
-set("n", "<Leader>fh", tb.help_tags, { desc = "Telescope Search Help" })
-set("n", "<Leader>fm", tb.man_pages, { desc = "Telescope Search Manual" })
+set({ "n", "x" }, "<leader>fg", tb.grep_string, { desc = "Ripgrep" })
+set("n", "<leader>fh", tb.help_tags, { desc = "Telescope Search Help" })
+set("n", "<leader>fm", tb.man_pages, { desc = "Telescope Search Manual" })
 
-set("n", "<Leader>gs", tb.git_status, { desc = "Telescope git status" })
-set("n", "<Leader>fb", tb.buffers, { desc = "Telescope buffers" })
-set("n", "<Leader>T", ":Telescope<CR>", { desc = "Telescope" })
+set("n", "<leader>gs", tb.git_status, { desc = "Telescope git status" })
+set("n", "<leader>T", ":Telescope<CR>", { desc = "Telescope" })
 
 set("n", "gd", tb.lsp_definitions, { desc = "go to definition" })
 set("n", "gr", tb.lsp_references, { desc = "go to references" })
