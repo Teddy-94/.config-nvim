@@ -10,6 +10,7 @@ A minimal neovim config.
 # Structure
 `init.lua` defines the basic vim options and keybindings, then loads the plugin setup files in `lua/`.
 Each file in `lua/` installs its plugins with `vim.pack.add()` and configures them.
+fzf-lua and diffview are configured on first use, and `vim.loader` caches compiled Lua, to keep startup fast.
 
 Plugin versions are pinned in `nvim-pack-lock.json`, which is committed so a fresh install gets the same revisions.
 
@@ -27,15 +28,16 @@ I have made an effort to use as few dependencies/plugins as possible, these are 
 * [gitsigns](https://github.com/lewis6991/gitsigns.nvim), [diffview](https://github.com/sindrets/diffview.nvim) Git integrations
 
 ## Nice to have
-* [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) File explorer
-* [oil.nvim](https://github.com/stevearc/oil.nvim) File explorer and more
+* [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua) File tree for browsing the project
+* [oil.nvim](https://github.com/stevearc/oil.nvim) Create, rename, move and delete files by editing a buffer
 * [mini.surround](https://github.com/nvim-mini/mini.surround) Surround actions
 
 ## Builtin instead of plugins
 * Commenting: Neovim's builtin `gc`/`gcc`, mapped to `<leader>c`
 * Undo tree: the bundled `nvim.undotree` package, mapped to `<leader>u`
 * Completion: native `'autocomplete'` with LSP items via `vim.lsp.completion`
-* Statusline: the default statusline (diagnostics and progress included)
+* Statusline: the default statusline with the git branch prepended, and LSP progress forwarded to it
+* Diagnostics list: `vim.diagnostic.setqflist()` in quickfix, toggled with `<leader>t`
 
 ## Color
 I always disable italics and strikethroughs where applicable.
