@@ -19,6 +19,8 @@ vim.opt.sidescrolloff = 10
 vim.opt.nu = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
+vim.opt.laststatus = 3
+vim.opt.ruler = false
 vim.opt.termguicolors = true
 vim.opt.incsearch = true
 vim.opt.updatetime = 50
@@ -91,8 +93,16 @@ vim.keymap.set("n", "<C-w>j", "5<C-w>-")
 vim.keymap.set("n", "<leader>c", "gcc", { remap = true, desc = "Toggle comment" })
 vim.keymap.set("x", "<leader>c", "gcgv", { remap = true, desc = "Toggle comment" })
 
+-- Diagnostics list in quickfix
+vim.keymap.set("n", "<leader>t", function()
+  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+    vim.cmd.cclose()
+  else
+    vim.diagnostic.setqflist()
+  end
+end, { desc = "Toggle diagnostics list" })
+
 -- Plugins
-vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim", })
 vim.pack.add({ "https://github.com/teddy-94/kanagawa.nvim" })
 require("kanagawa").setup({
   commentStyle = { italic = false },
@@ -105,15 +115,10 @@ require("kanagawa").setup({
 })
 vim.cmd("colorscheme kanagawa")
 require("lsp-setup")
-
-require("telescope-setup")
-require("lualine-setup")
-require("fidget-setup")
-require("nvim-tree-setup")
-
-require("surround-setup")
-require("oil-setup")
-require("trouble-setup")
 require("git-integrations")
+require("fzf-setup")
+require("nvim-tree-setup")
+require("oil-setup")
+require("surround-setup")
 vim.cmd.packadd("nvim.undotree")
 vim.keymap.set("n", "<leader>u", "<cmd>Undotree<CR>", { desc = "Toggle undotree" })

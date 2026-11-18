@@ -31,3 +31,11 @@ require("gitsigns").setup({
     map("<leader>hs", gs.stage_hunk, "Gitsigns stage or unstage hunk")
   end
 })
+
+function _G.git_branch()
+  local head = vim.b.gitsigns_head
+  return head and head ~= "" and (" " .. head .. " │ ") or ""
+end
+
+-- Prepend the branch to Neovim's default statusline instead of rebuilding it
+vim.o.statusline = "%{v:lua.git_branch()}" .. vim.api.nvim_get_option_info2("statusline", {}).default
