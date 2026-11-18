@@ -1,12 +1,17 @@
 vim.pack.add({
-  "https://github.com/NeogitOrg/neogit",
+  "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/sindrets/diffview.nvim",
 })
-require("neogit").setup({
-  vim.keymap.set("n", "<leader>H", ":Neogit<CR>", { desc = "Neogit" })
-})
 
-vim.pack.add({ "https://github.com/lewis6991/gitsigns.nvim" })
+require("diffview").setup({ use_icons = false })
+vim.keymap.set("n", "<leader>H", function()
+  if require("diffview.lib").get_current_view() then
+    vim.cmd("DiffviewClose")
+  else
+    vim.cmd("DiffviewOpen")
+  end
+end, { desc = "Toggle Diffview" })
+
 require("gitsigns").setup({
   current_line_blame = false,
   on_attach = function()
