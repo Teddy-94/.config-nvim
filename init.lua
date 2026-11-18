@@ -1,13 +1,11 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = " "
 
 vim.opt.shortmess = "aFI"
 vim.opt.swapfile = false
 vim.opt.backup = false
---
--- C-space gets mapped in cmp to bring up completion menu
-vim.keymap.set({ "n", "i" }, "<C-space>", "<nop>")
--- Prevent accidentaly crashing buffers when input language is set to Swedish
+
+-- Prevent accidentally crashing buffers when input language is set to Swedish
 vim.keymap.set({ "n", "i" }, "Ö", "<nop>")
 
 -- TODO: find a new key for recording macros
@@ -32,11 +30,11 @@ vim.opt.smartindent = true
 
 -- Use system clipboard
 vim.opt.clipboard = "unnamedplus"
--- Dont overwrite clipboard when pasting in visual mode
-vim.keymap.set({ "x", "v" }, "p", "P")
+-- Don't overwrite clipboard when pasting in visual mode
+vim.keymap.set("x", "p", "P")
 
--- Dont move the cursor when yanking in visual mode
-vim.keymap.set({ "x", "v" }, "y", "ygv<esc>")
+-- Don't move the cursor when yanking in visual mode
+vim.keymap.set("x", "y", "ygv<esc>")
 
 -- Keep cursor in the middle when using J, C-d, C-u, and search
 vim.keymap.set("n", "J", "mzJ`z")
@@ -50,36 +48,26 @@ vim.opt.wrap = false
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noinsert,noselect"
-
 -- C-s to save
-vim.keymap.set("n", "<C-s>", ":w<CR>")
-vim.keymap.set("n", "<D-s>", ":w<CR>")
-
--- C-l to clear any highlights
-vim.keymap.set("n", "<C-l>", ":noh<CR>")
+vim.keymap.set("n", "<C-s>", "<cmd>w<CR>")
+vim.keymap.set("n", "<D-s>", "<cmd>w<CR>")
 
 -- Open a terminal buffer in the current dir and puts you in edit
-vim.keymap.set("n", "<C-t>", ":bel new<CR>:term<CR>a")
+vim.keymap.set("n", "<C-t>", "<cmd>bel split | terminal<CR>i")
 -- map esc to get into normal mode when in a term buffer
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
--- Shift j and k moves visual seleciton down and up
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- Shift j and k moves visual selection down and up
+vim.keymap.set("x", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("x", "K", ":m '<-2<CR>gv=gv")
 
 -- Keep highlight when indenting
-vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("x", ">", ">gv")
+vim.keymap.set("x", "<", "<gv")
 
--- H and L to move to start and end of line and m to %
+-- H and L to move to start and end of line
 vim.keymap.set({ "n", "x" }, "H", "^")
 vim.keymap.set({ "n", "x" }, "L", "$")
-
--- Tab and Shift-tab to cycle through selections in the popup menu
-vim.keymap.set("i", "<Tab>", [[pumvisible() ? "\<C-n>" : "\<Tab>"]], { expr = true })
-vim.keymap.set("i", "<S-Tab>", [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 
 -- Navigating between windows
 vim.keymap.set("n", "<leader>wh", "<C-w>h")
@@ -88,8 +76,8 @@ vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
 
 -- Creating and moving splits
-vim.keymap.set("n", "<leader>ws", ":split<CR><C-w>j", { desc = "Split Horizontally" })
-vim.keymap.set("n", "<leader>wv", ":vsplit<CR><C-w>l", { desc = "Split Vertically" })
+vim.keymap.set("n", "<leader>ws", "<cmd>split<CR><C-w>j", { desc = "Split Horizontally" })
+vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR><C-w>l", { desc = "Split Vertically" })
 vim.keymap.set("n", "<leader>wH", "<C-w>H", { desc = "Move split left" })
 vim.keymap.set("n", "<leader>wJ", "<C-w>J", { desc = "Move split down" })
 
@@ -99,14 +87,14 @@ vim.keymap.set("n", "<C-w>h", "5<C-w><")
 vim.keymap.set("n", "<C-w>k", "5<C-w>+")
 vim.keymap.set("n", "<C-w>j", "5<C-w>-")
 
-vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end, { desc = "vim.lsp.buf.code_action()" })
-vim.keymap.set("n", "<leader>fmt", function() vim.lsp.buf.format() end, { desc = "vim.lsp.buf.format()" })
--- vim.keymap.set("n", "<leader>t", function () vim.diagnostic.open_float() end, { desc = "open diagnostics float" })
+-- Comment lines
+vim.keymap.set("n", "<leader>c", "gcc", { remap = true, desc = "Toggle comment" })
+vim.keymap.set("x", "<leader>c", "gcgv", { remap = true, desc = "Toggle comment" })
 
 -- Plugins
 vim.pack.add({ "https://github.com/nvim-lua/plenary.nvim", })
 vim.pack.add({ "https://github.com/teddy-94/kanagawa.nvim" })
-require('kanagawa').setup({
+require("kanagawa").setup({
   commentStyle = { italic = false },
   functionStyle = {},
   keywordStyle = { italic = false },
@@ -124,10 +112,8 @@ require("fidget-setup")
 require("nvim-tree-setup")
 
 require("surround-setup")
-require("comment-nvim-setup")
 require("oil-setup")
 require("trouble-setup")
 require("git-integrations")
-vim.pack.add({ "https://github.com/catgoose/nvim-colorizer.lua" })
-vim.pack.add({ "https://github.com/mbbill/undotree" })
-vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>:UndotreeFocus<CR>")
+vim.cmd.packadd("nvim.undotree")
+vim.keymap.set("n", "<leader>u", "<cmd>Undotree<CR>", { desc = "Toggle undotree" })

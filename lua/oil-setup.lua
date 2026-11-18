@@ -1,5 +1,5 @@
-vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
-require('oil').setup({
+vim.pack.add({ "https://github.com/stevearc/oil.nvim" })
+require("oil").setup({
   use_default_keymaps = false,
   keymaps = {
     ["g?"] = { "actions.show_help", mode = "n" },
@@ -10,9 +10,9 @@ require('oil').setup({
     show_hidden = true,
   },
   float = {
-    padding= 1,
+    padding = 1,
     border = "rounded",
     preview_split = "right",
   },
 })
-vim.keymap.set("n", "<leader>oi", function() require('oil').open_float() end)
+vim.keymap.set("n", "<leader>oi", function() require("oil").open_float() end)

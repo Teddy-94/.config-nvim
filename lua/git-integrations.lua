@@ -14,17 +14,20 @@ end, { desc = "Toggle Diffview" })
 
 require("gitsigns").setup({
   current_line_blame = false,
-  on_attach = function()
-    local gs = require('gitsigns')
-    vim.keymap.set("n", "<leader>hd", gs.diffthis, { desc = "diffthis", silent = true })
-    vim.keymap.set("n", "<leader>hD", function() gs.diffthis('~') end, { desc = "diffthis origin/main" })
-    vim.keymap.set("n", "<leader>hb", gs.blame_line, { desc = "Gitsigns blame line" })
+  on_attach = function(bufnr)
+    local gs = require("gitsigns")
+    local function map(lhs, rhs, desc)
+      vim.keymap.set("n", lhs, rhs, { buffer = bufnr, desc = desc })
+    end
 
-    vim.keymap.set("n", "<leader>hn", gs.next_hunk, { desc = "Gitsigns next hunk" })
-    vim.keymap.set("n", "<leader>hp", gs.prev_hunk, { desc = "Gitsigns previous hunk" })
+    map("<leader>hd", gs.diffthis, "Gitsigns diffthis")
+    map("<leader>hD", function() gs.diffthis("~") end, "Gitsigns diffthis against last commit")
+    map("<leader>hb", gs.blame_line, "Gitsigns blame line")
 
-    vim.keymap.set("n", "<leader>hP", gs.preview_hunk, { desc = "Gitsigns preview hunk" })
-    vim.keymap.set("n", "<leader>hs", gs.stage_hunk, { desc = "Gitsigns stage hunk" })
-    vim.keymap.set("n", "<leader>hi", gs.undo_stage_hunk, { desc = "Gitsigns undo_stage_hunk" })
+    map("<leader>hn", function() gs.nav_hunk("next") end, "Gitsigns next hunk")
+    map("<leader>hp", function() gs.nav_hunk("prev") end, "Gitsigns previous hunk")
+
+    map("<leader>hP", gs.preview_hunk, "Gitsigns preview hunk")
+    map("<leader>hs", gs.stage_hunk, "Gitsigns stage or unstage hunk")
   end
 })

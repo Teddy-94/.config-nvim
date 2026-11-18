@@ -1,5 +1,5 @@
 vim.pack.add({ "https://github.com/nvim-tree/nvim-tree.lua" })
-require("nvim-tree").setup {
+require("nvim-tree").setup({
   actions = {
     open_file = {
       quit_on_open = true,
@@ -60,7 +60,7 @@ require("nvim-tree").setup {
       },
     },
   },
-}
+})
 
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<leader>E", ":NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>E", "<cmd>NvimTreeFindFile<CR>")

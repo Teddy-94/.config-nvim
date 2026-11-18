@@ -1,15 +1,13 @@
 vim.pack.add({
   "https://github.com/nvim-telescope/telescope.nvim",
-  "https://github.com/BurntSushi/ripgrep",
 })
 local actions = require("telescope.actions")
-require("telescope").setup {
+require("telescope").setup({
   defaults = {
     wrap_results = false,
-    layout_strategy = 'vertical',
+    layout_strategy = "vertical",
     layout_config = { vertical = { width = { padding = 1 } } },
     initial_mode = "normal",
-    path_display = { smart = false },
     mappings = {
       n = {
         ["<leader>fl"] = actions.send_to_qflist + actions.open_qflist,
@@ -58,7 +56,7 @@ require("telescope").setup {
       initial_mode = "normal"
     },
   }
-}
+})
 
 vim.api.nvim_create_autocmd("User", {
   pattern = "TelescopePreviewerLoaded",
@@ -68,7 +66,7 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 local set = vim.keymap.set
-local tb = require('telescope.builtin')
+local tb = require("telescope.builtin")
 set("n", "<leader>ff", tb.find_files, { desc = "Find files" })
 set("n", "<leader>fF", tb.git_files, { desc = "Find git_files" })
 set("n", "<leader>fo", tb.oldfiles, { desc = "Find recently opened files" })
@@ -79,7 +77,7 @@ set("n", "<leader>fh", tb.help_tags, { desc = "Telescope Search Help" })
 set("n", "<leader>fm", tb.man_pages, { desc = "Telescope Search Manual" })
 
 set("n", "<leader>gs", tb.git_status, { desc = "Telescope git status" })
-set("n", "<leader>T", ":Telescope<CR>", { desc = "Telescope" })
+set("n", "<leader>T", "<cmd>Telescope<CR>", { desc = "Telescope" })
 
 set("n", "gd", tb.lsp_definitions, { desc = "go to definition" })
 set("n", "gr", tb.lsp_references, { desc = "go to references" })
