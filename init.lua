@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.shortmess = "aFI"
+vim.opt.shortmess:append("aI")
 vim.opt.swapfile = false
 vim.opt.backup = false
 
@@ -20,6 +20,8 @@ vim.opt.nu = true
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.laststatus = 3
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 vim.opt.ruler = false
 vim.opt.termguicolors = true
 vim.opt.incsearch = true
@@ -78,8 +80,8 @@ vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
 
 -- Creating and moving splits
-vim.keymap.set("n", "<leader>ws", "<cmd>split<CR><C-w>j", { desc = "Split Horizontally" })
-vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR><C-w>l", { desc = "Split Vertically" })
+vim.keymap.set("n", "<leader>ws", "<cmd>split<CR>", { desc = "Split Horizontally" })
+vim.keymap.set("n", "<leader>wv", "<cmd>vsplit<CR>", { desc = "Split Vertically" })
 vim.keymap.set("n", "<leader>wH", "<C-w>H", { desc = "Move split left" })
 vim.keymap.set("n", "<leader>wJ", "<C-w>J", { desc = "Move split down" })
 

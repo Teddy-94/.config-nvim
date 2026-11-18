@@ -1,62 +1,18 @@
 vim.pack.add({ "https://github.com/nvim-tree/nvim-tree.lua" })
 require("nvim-tree").setup({
-  actions = {
-    open_file = {
-      quit_on_open = true,
-    },
-  },
-  view = {
-    width = 60
-  },
-  diagnostics = {
-    enable = true
-  },
-  modified = {
-    enable = true
-  },
-  filters = {
-    git_ignored = false
-  },
+  actions = { open_file = { quit_on_open = true } },
+  view = { width = 60 },
+  diagnostics = { enable = true },
+  filters = { git_ignored = false },
   renderer = {
     highlight_bookmarks = "all",
     special_files = {},
+    indent_markers = { enable = true },
     icons = {
       git_placement = "signcolumn",
+      show = { file = false, folder = false, folder_arrow = false, modified = false, bookmarks = false },
       glyphs = {
-        default = "",
-        symlink = "",
-        bookmark = "",
-        modified = "",
-        folder = {
-          arrow_closed = "",
-          arrow_open = "",
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
-          symlink_open = "",
-        },
-        git = {
-          unstaged = "U",
-          staged = "S",
-          unmerged = "UM",
-          renamed = "R",
-          untracked = "UT",
-          deleted = "D",
-          ignored = "i",
-        },
-      },
-    },
-    indent_markers = {
-      enable = true,
-      inline_arrows = true,
-      icons = {
-        corner = "└",
-        edge = "│",
-        item = "│",
-        bottom = "─",
-        none = " ",
+        git = { unstaged = "U", staged = "S", unmerged = "UM", renamed = "R", untracked = "UT", deleted = "D", ignored = "i" },
       },
     },
   },

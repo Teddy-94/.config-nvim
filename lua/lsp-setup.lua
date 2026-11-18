@@ -59,10 +59,9 @@ vim.api.nvim_create_autocmd("LspProgress", {
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
-      diagnostics = {
-        globals = { "vim" }
-      }
-    }
+      runtime = { version = "LuaJIT" },
+      workspace = { library = { vim.env.VIMRUNTIME } },
+    },
   }
 })
 
