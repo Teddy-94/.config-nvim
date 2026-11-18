@@ -1,3 +1,6 @@
+-- Cache compiled Lua modules so plugins load faster on startup
+vim.loader.enable()
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 

@@ -3,8 +3,11 @@ vim.pack.add({
   "https://github.com/sindrets/diffview.nvim",
 })
 
-require("diffview").setup({ use_icons = false })
+-- diffview is loaded and configured on first toggle instead of at startup
 vim.keymap.set("n", "<leader>H", function()
+  if not package.loaded["diffview"] then
+    require("diffview").setup({ use_icons = false })
+  end
   if require("diffview.lib").get_current_view() then
     vim.cmd("DiffviewClose")
   else
